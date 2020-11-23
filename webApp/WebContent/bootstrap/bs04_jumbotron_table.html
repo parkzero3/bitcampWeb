@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+    <style>
+        /*.jumbotron{padding: 10px; text-align: center;}*/
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--
+    .jumnotron : 회색배경에 패딩이 설정 , 테두리 둥글게 스타일이 적용됨
+    -->
+    <div class="jumbotron">
+        <h1>jumbotron을 이용한 스타일</h1>
+    </div>
+    <p class="jumbotron">4회 무사 1루에서 상대 선발 게릿 콜을 상대로 가운데 담장 넘어가는 투런 홈런을 기록, 콜에게 강한 면모를 다시 한 번 과시했     다.
+        이 홈런은 1-2에서 3-2로 뒤집는, 아주 의미가 큰 홈런이었다. 그러나 그 의미는 곧 희석됐다. 선발 블레이크 스넬은 5회초에만 카일 히가시오카, 애런 저지에게 두 개의 홈런을 허용, 다시 3-4 역전을 허용했고 이 점수가 그대로 굳어졌다.
+        스넬은 이날 5이닝 6피안타 3피홈런 2볼넷 4탈삼진 4실점을 기록하고 물러났다.</p>
+    <!--
+        .table : 전체폭을 100%로 설정 하고 보더를 적용 ( 표 형식으로 보임)
+        .table-striped : 줄단위로 배경색 설정
+        .table-bordered : 표의 선만 표시
+        .table-hover : 마우스 오버 , 아웃시 배경색 변경 tbody 만 적용됨
+        .table-dark : 표의 배경색을 어두운색으로 지정
+    -->
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>100</td>
+                <td>홍길동</td>
+                <td>010-1111-1111</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>이순신</td>
+                <td>010-2222-2222</td>
+            </tr>
+            <tr>
+                <td>300</td>
+                <td>김개똥</td>
+                <td>010-3333-3333</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>강감찬</td>
+                <td>010-4444-4444</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>김삿갓</td>
+                <td>010-5555-5555</td>
+            </tr>
+            <tr>
+                <td>600</td>
+                <td>세종대왕</td>
+                <td>010-6666-6666</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">문의사항은 02-777-7777 연락바랍니다. </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <!-- 
+        색상명 
+        *-primary : blue (파스텔톤)
+        *-success: green
+        *-danger : red 
+        *-info : blue (에메랄드색)
+        *-warning : yellow 
+        *-active : gray
+        *-secondary : gray
+    -->
+    
+        <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처 primary : 파랑계열 </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-success">
+                <td>100</td>
+                <td>홍길동</td>
+                <td>010-1111-1111 success : 녹색계열 </td>
+            </tr>
+            <tr class="table-danger">
+                <td>200</td>
+                <td>이순신</td>
+                <td>010-2222-2222 danger : 빨강계열</td>
+            </tr>
+            <tr class="table-info">
+                <td>300</td>
+                <td>김개똥</td>
+                <td>010-3333-3333 info : 녹색계열 </td>
+            </tr>
+            <tr class="table-active">
+                <td>400</td>
+                <td>강감찬</td>
+                <td>010-4444-4444 active : 회색계열</td>
+            </tr>
+            <tr class="table-warning">
+                <td>500</td>
+                <td>김삿갓</td>
+                <td>010-5555-5555 warning : 노랑계열</td>
+            </tr>
+            <tr class="table-secondary">
+                <td>600</td>
+                <td>세종대왕</td>
+                <td>010-6666-6666 secondary : 회색계열</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">문의사항은 02-777-7777 연락바랍니다. </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    
+</div>
+</body>
+</html>

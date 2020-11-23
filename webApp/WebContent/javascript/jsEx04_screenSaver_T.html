@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        #content {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        #saverImg {
+            text-align: center;
+        }
+
+        #saverImg>img {
+            width: 100px;
+            height: 100px;
+            margin: 1px;
+            border: 1px solid gray;
+        }
+
+        #msg {
+            font-size: 3em;
+            text-align: center;
+            display: none;
+        }
+
+        #wing {
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+    </style>
+    <script>
+        var imgName = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg'];
+
+        function setSaverImage() {
+            var tag = "이미지를 클릭하시면 화면보호기가 설정됩니다.<br/>";
+            for (i = 0; i < imgName.length; i++) {
+                //클릭시 파일명을 받는방법
+                //tag+= "<img src='../img/"+imgName[i]+"'onclick ='startScreenSaver(\""+imgName[i]+"\")'/>"; 
+                //클릭시 인덱스로 하는방법
+                tag += "<img src='../img/" + imgName[i] + "'onclick ='startScreenSaver(" + i + ")'/>";
+            }
+            document.getElementById("saverImg").innerHTML = tag;
+        }
+        var wWidth;
+        var wHeight;
+        var timer;
+
+        function startScreenSaver(selImg) {
+            //현재 컨텐츠 숨김 
+            document.getElementById("content").style.display = "none";
+            //body태그 전체에 배경설정 
+            var body = document.getElementsByTagName("body")[0];
+            body.style.backgroundImage = "url(../img/" + imgName[selImg] + ")";
+
+            wWidth = window.innerWidth;
+            wHeight = window.innerHeight;
+
+            body.style.backgroundSize = wWidth + "px " + wHeight + "px"; //100px 200px
+            document.getElementById("msg").style.display = "block";
+            document.getElementById("wing").style.display = "block";
+
+            timer = setInterval("wingMove()", 300);
+        }
+
+        var x = 0,
+            y = 0,
+            xStep = 5,
+            yStep = 5;
+
+        function wingMove() {
+            x += xStep;
+            y += yStep;
+            w = document.getElementById("wing").style;
+
+            w.left = x + "px";
+            w.top = y + "px";
+
+            if (y >= wHeight - 55) yStep = -5;
+            if (x >= wWidth - 200) xStep = -5;
+            if (x <= 0) xStep = 5;
+            if (y <= 0) yStep = 5;
+        }
+        //화면보호기 종료
+        function cancelSaver() {
+            clearInterval(timer);
+            
+            document.getElementsByTagName("body")[0].style.backgroundImage = "";
+            document.getElementById("msg").style.display = "none";
+            document.getElementById("wing").style.display = "none";
+            
+            document.getElementById("content").style.display = "block";
+        }
+    </script>
+</head>
+
+<body onload="setSaverImage()" onkeyup="cancelSaver()"> <!-- onkeydown -->
+    <!-- 컨텐츠 -->
+    <div id="content">
+        <div id="saverImg"></div>
+        <div id="main">
+            <img src="../img/01.jpg" /><br />
+            <img src="../img/02.jpg" /><br />
+            <img src="../img/03.jpg" /><br />
+        </div>
+    </div>
+    <div id="msg"> 마우스를 클릭하시면 화면보호기가 종료됩니다.</div>
+    <img src="../img/wing.gif" id="wing" />
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="bottom" style="font-size:1em; text-align:center; background-color:#48579C; width:800px; color:white ; height:50px; line-height: 50px;">
+	서울특별시청 04524 서울특별시 중구 세종대로 10
+	</div>
+</body>
+</html>

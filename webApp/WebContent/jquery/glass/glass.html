@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+        $(function(){
+            var tag ="<div></div><div></div>";
+            tag += "<img src ='img/title_layer.gif'/>";
+            
+            for(i=1;i<=3;i++){
+                tag += "<img src='img/glass"+i+".gif'/>";
+            }
+            $('body').html(tag);
+            
+            $('body').css("margin","0px");
+            $('div:first').css("height","40px").css("background-color","#ef899a");//pink $('div').eq(1) or $('div:nth-of-type(0)') 
+            $('div').eq(1).css({height:"22px",backgroundColor:"rgb(84,174,200)",});//blue JSON 방식
+            
+            $('img').css("position","absolute");
+            $("img:first").css("top","0px");
+            $('img').eq(1).css({top:"60px",left:"300px"});
+            $('img').eq(2).css({top:"70px",left:"500px"});
+            $('img:last').css({top:"100px",left:"400px"});
+        });
+    </script>
+</head>
+
+</html>

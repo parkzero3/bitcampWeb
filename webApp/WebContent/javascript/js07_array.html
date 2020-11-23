@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+    //배열선언 : 배열의 크기를 정의하지않는다. 다양한 데이터형을 대입할 수 있다.
+        var arr1 = new Array();
+        arr1[1] = 1234;
+        arr1[3] = "홍길동";
+        arr1[10] = 25.345;
+        arr1[20] = 51234;
+        
+        for(idx=0; idx<arr1.length; idx++){
+            document.write("arr["+idx+"]=" + arr1[idx]+"<br/>");
+        }
+        
+        //배열 선언시 초기값을 설정하는 방법
+        var arr2 = new Array(25,12,55,14,'java',17,98,6);
+        document.write("arr2="+ arr2 +"<br/>");
+        
+        var arr3 = [222,444,'홍길동','서울시 마포구']; // 자바와 다르게 변수에 [] 빠짐
+        document.write("arr3=" + arr3+"<br/>");
+        
+        // push : 배열의 마지막에 데이터 추가
+        arr3.push(25.31);
+        document.write("arr3.push ="+arr3+"<br/>");
+        
+        // 문자 조인하기
+        var joinDataArr3 = arr3.join("/"); // , 설정된 구분기호를 / 로 바꾼다
+        document.write("arr3.join =" + joinDataArr3+ "<br/>");
+        
+        // pop : 배열의 마지막 데이터 삭제
+        arr3.pop();
+        document.write("arr3.pop = "+ arr3 +"<br/>");
+        
+        // shift : 배열의 데이터가 right -> left 로 이동한다. 제일 앞에 있는 데이터가 밖으로 빠져나간다.
+        
+        arr3.shift();
+        document.write("arr3.shift =" + arr3 + "<br/>");
+        
+        // unshift : 배열의 데이터가 left -> right 로 이동한다. 0번째를 비우고 하나씩 뒤로 미룸 지워지는것이아님 pop 과 다름
+        arr3.unshift("첫번째데이터");
+        document.write("arr3.unshift =" + arr3 + "<br/>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

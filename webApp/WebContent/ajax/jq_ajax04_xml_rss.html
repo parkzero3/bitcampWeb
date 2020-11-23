@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>
+
+<script>
+	$(function(){
+		$.ajax({
+			url:"ajax_rss.xml",
+			dataType:"xml",
+			success:function(result){
+				if($(result).find('item').length>0){
+					$(result).find('item').each(function(){
+						var title = $(this).find("title").text();//제목
+						var date =  $(this).find("pubDate").text();//날짜
+						var dateObj = new Date(date);
+						var y = dateObj.getFullYear();
+						var m = dateObj.getMonth()+1;
+						var d = dateObj.getDate();
+						
+						var h = dateObj.getHours();
+						var mi = dateObj.getMinutes();
+						var s = dateObj.getSeconds();
+						
+						var dateStr = y+"-"+m+"-"+d+" "+h+":"+mi+":"+s;
+						
+						var author =  $(this).find("author").text();//기자
+						var link =  $(this).find("link").text(); //링크
+						var description = $(this).find("description").text();// 기사내용
+						var img =  $(this).find("comments").text();
+						
+						var tag = "<tr><td>";
+						
+						tag += "<b><a href='"+link+"'>"+title+"</a></b>";
+						tag += "("+dateStr;
+						if(author.trim() == ""){// 기자가없을때
+							tag += ")<br/>";
+						}else{//기자가 있을때
+							tag += ","+author+")<br/>";
+						}
+						tag += "<p><img src='"+img+"'align='right' style='width:150px; height:150px;'/>"+description+"</p></td></tr>";
+						
+						$("#news").append(tag);
+						
+					});
+	
+				}
+			},
+			error:function(){
+				console.log("데이터를 전송받지 못하였습니다.");
+			}
+			
+		});
+	});
+</script>   
+</head>
+<body>
+	<table class="table table-hover"><tbody id="news"></tbody></table>
+</body>
+</html>

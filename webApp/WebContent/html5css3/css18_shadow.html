@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그림자 속성</title>
+<style>
+	div{font-size:40px ; text-align:center ; width:500px; height:100px; line-height:100px;
+		border: 1px solid gray; margin:30px;}
+	/*
+		shadow 그림자속성
+		
+		text-shadow : 텍스트에 그림자 속성
+		box-shadow : 박스에 그림자 속성
+	*/
+	div:first-child{
+		/* 			오른쪽  아래쪽또는위쪽  흐림정도 그림자 색상*/
+		text-shadow:5px 5px 3px red;
+	}
+	div:last-of-type{
+		box-shadow:5px 5px 5px yellow;
+	}
+</style>
+</head>
+<body>
+<div>텍스트에 그림자 속성</div>
+<div>박스에 그림자 속성</div>
+</body>
+</html>

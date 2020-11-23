@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{width :500px;height: 600px ; border :1px solid gray; padding:5px;margin:5px; overflow:hidden;
+		transition-duration:3s; /* 변환속도 : 초(s)*/
+		opacity:1; /* 투명도 0~1 (0.5 반투명)*/
+	}
+	div>img{width:100%; height:200px;}
+	#chk:checked + div {
+		/*height:0px;*/
+		opacity:0;
+		/*display : none;*/
+		width:0px;
+	}
+</style>
+</head>
+<body>
+<input type="checkbox" id="chk"/> 클릭하세요
+<div>
+	<img src= "../img/01.jpg"/>
+	<img src= "../img/02.jpg"/>
+	<img src= "../img/03.jpg"/>
+	<img src= "../img/04.jpg"/>
+</div>
+</body>
+</html>

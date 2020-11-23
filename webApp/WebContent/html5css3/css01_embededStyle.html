@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Embeded Style</title>
+<style>
+	/*		
+		선택자 
+		태그 선택자 : html 태그를 이용한 선택자
+		배경색*/ 
+	body{background-color:#ddd}
+	h1{color:#00f}
+	/*	아이디 선택자	변수를 지어준다고 생각하면됨	*/
+	#txt{background-color:pink}
+	/*	클래스 선택자	id 는 한개밖에 사용 못하지만 class 는 같은이름으로 동시적용 가능*/
+	.fnt{
+			color:red; 
+			background-color:yellow}
+	
+	h1.fnt{color:pink}
+	h1#txt{color:green}
+	
+	h1#txt, li.fnt{background-color:black}
+</style>
+</head>
+<body>
+<h1 id="txt">스타일 시트 연습중</h1>
+<ul>
+	<li class="fnt">java</li>
+	<li>javascript</li>
+	<li class="fnt">spring</li>
+	<li>html</li>
+</ul>
+<h1 class="fnt">스타일 시트 연습중 1</h1>
+</body>
+</html>

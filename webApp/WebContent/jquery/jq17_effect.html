@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        img{width: 200px;height: 200px}
+    </style>
+    <script>
+    $(function(){
+       //숨기기 구현
+        $("#hide").click(function(){
+           //이미지 숨기기 (div,body,h1)가능 
+            //     속도 : "slow" , "fast" , "normal", 밀리초
+            $("#i").hide("slow"); //폭, 높이 , 투명도를 이용하여 변환
+        });
+        //보여주기
+        $("#show").on('click',function(){
+           //이미지 숨기기 (div,body,h1)가능 
+            //     속도 : "slow" , "fast" , "normal", 밀리초
+            $("#i").show(2000); 
+        });
+        //toggle() : 숨기기와 보여주기를 반복한다.
+        $("#toggle").on('click',function(){
+            $("#i").toggle("fast");
+        });
+        
+        //fadeOut(): 점점 흐리게
+        $("#fadeOut").on('click',function(){
+           $("#i").fadeOut(3000); 
+        });
+        
+        //fadeIn() : 점점진하게
+        $("#fadeIn").on('click',function(){
+            $("#i").fadeIn(3000); 
+        });
+        
+        //fadeToggle() : 점점흐리게, 점점진하게를 토글로 적용
+        $("#fadeToggle").click(function(){
+            $("#i").fadeToggle(2000); 
+        });
+        
+        //slideUp(): 이미지 접기  이미지 사이즈를 설정해야 위아래로 접힘
+        $("#slideUp").click(function(){
+            $("#i").slideUp(2000); 
+        });
+        //slideDown(): 이미지 펼치기 이미지 사이즈를 설정해야 위아래로 접힘
+        $("#slideDown").click(function(){
+            $("#i").slideDown(2000); 
+        });
+        
+        //slideToggle(): 이미지 접기 , 펼치기 토글 이미지 사이즈를 설정해야 위아래로 접힘
+        $("#slideToggle").click(function(){
+            $("#i").slideToggle(2000); 
+        });
+        
+    });
+    </script>
+</head>
+<body>
+    <input type="button" value="숨기기(hide)" id="hide"/>
+    <input type="button" value="보여주기(show)" id="show"/>
+    <input type="button" value="토글(toggle)" id="toggle"/>
+    <button id ="fadeOut">점점흐리게(fadeOut)</button>
+    <button id ="fadeIn">점점진하게(fadeIn)</button>
+    <button id ="fadeToggle"> 토글(fadeToggle)</button>
+    <button id ="slideUp">이미지 접기 (위아래)(slideUp)</button>
+    <button id ="slideDown">이미지 펼치기(위아래)(slideDown)</button>
+    <button id ="slideToggle">슬라이드토글 (위아래) (slideToggle)</button>
+<hr/>
+    <img src="../img/01.jpg" id ="i"/>
+</body>
+</html>

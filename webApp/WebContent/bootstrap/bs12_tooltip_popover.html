@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>    
+<script src="bootstrap.js"></script>  
+    <style>
+        .container{padding:200px;}
+    </style>
+    
+<script>
+    $(function(){
+        $("[data-toggle=tooltip]").tooltip();
+        $("[data-toggle=popover]").popover();
+    });
+    
+    
+</script>    
+</head>
+<body>
+<!-- tooltip , popover 사용하기 위해서는 popper.js가 있어야함
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+-->
+<div class="container">
+    
+    <!-- 
+        data-toggle="tooltip" : 풍선도움말 기능 [사용하기위해선 제이쿼리 작성]
+        
+        title : 풍선도움말 내용
+        data-placement : 풍선도움말의 풍선 위치 (top,bottom,left,right)
+    -->
+    <h1 data-toggle="tooltip" title="풍선도움말내용" data-placement="top"> ToolTip 테스트 </h1>
+    <div data-toggle="tooltip" title="Tooltips are not CSS-only plugins" data-placement="left">
+        Tooltips are not CSS-only plugins, and must therefore be initialized with jQuery: select the specified element and call the tooltip() method.
+    </div>
+    <hr/>
+    <h1> popover를 이용한 풍선도움말</h1>
+    <!--
+        풍선도움말에 제목과 내용이 있는것을 말한다.
+
+        title : 풍선도움말의 제목 
+        data-content송성 : 풍선도움말의 내용
+        data-trigger="hover" : 마우스오버시 popover
+    -->
+    <div class="list-group">
+        <a href="#" class="list-group-item" title="A태그 1" data-content="A태그로 리스트 만들기 1" 
+           data-toggle="popover" data-placement="top" data-trigger="hover"> 
+            A태그로 리스트 만들기 1</a>
+        <a href="#" class="list-group-item" title="A태그 2" data-content="A태그로 리스트 만들기 2" 
+           data-toggle="popover" data-placement="left" data-trigger="hover"> 
+            A태그로 리스트 만들기 2</a>
+        <a href="#" class="list-group-item" title="A태그 3" data-content="A태그로 리스트 만들기 3"
+           data-toggle="popover" data-placement="bottom" data-trigger="hover"> 
+            A태그로 리스트 만들기 3</a>
+        <a href="#" class="list-group-item" title="A태그 4" data-content="A태그로 리스트 만들기 4" 
+           data-toggle="popover" data-placement="right" data-trigger="hover"> 
+            A태그로 리스트 만들기 4</a>
+        <a href="#" class="list-group-item" title="A태그 5" data-content="A태그로 리스트 만들기 5"
+           data-toggle="popover" data-trigger="hover">
+            <h2> A태그로 리스트 만들기 5</h2>
+            <p>리스트 만들기 5 상세설명 주저리주저리 링크는 다 걸림 </p>
+        </a>
+    </div>
+</div>    
+    
+</body>
+</html>

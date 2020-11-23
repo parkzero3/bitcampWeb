@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+//   document.write("aaaaaa");
+//        function output(){           
+//            document.write("bbbbbbb")
+//                
+//        }
+        
+        /* 문자열 관련 모듈*/
+        var txt ="자바스크립트에서 문자열 처리하기"; // 제어문자 (\",\'.\\,\n,\t)
+        
+//        document.write("줄\n바\t꿈"); // \n, \t 적용되지않음
+//        alert("대화상자에\n 여러줄로 메세지 표시하기"); //body 가 아니기때문에 br/ 해당안됨
+        document.write("length ="+ txt.length); //문자 길이구하기
+        document.write("<br/>indexOf ="+ txt.indexOf("문자열")); //없으면 -1 //문자위치찾기
+        document.write("<br/> search ="+ txt.search("문자열"));  // 없으면 -1 //문자위치찾기
+        // substring(),slice(),substr()
+        document.write("<br/> slice ="+ txt.slice(3,7)); //문자열 자르기
+        document.write("<br/> replace ="+ txt.replace("문자열","바뀐문자")); //문자 바꾸기
+        
+        var txt2 ="Hello, JavaScript..";
+        document.write("<br/> toUpperCase=" + txt2.toUpperCase()); //대문자로 전환
+        document.write("<br/> toLowerCase=" + txt2.toLowerCase()); //소문자로 전환
+        // + 
+        document.write("<br/> concat =" + txt2.concat(txt2)); // 문자 더하기
+        document.write("<br/> charAt =" + txt2.charAt(2)); //특정위치 문자찾기
+        document.write("<br/> charCodeAt =" + txt2.charCodeAt(0)); // 해당위치 문자 아스키코드값 구하기
+        
+        var splitData = txt2.split("a"); //배열로 반환되며 a 를 기준으로 문자 자르기
+        for(i=0; i<splitData.length; i++){
+            document.write("<br/> splitData["+i+"]=" + splitData[i]);
+        }
+    </script>
+</head>
+<body>
+<br/><input type="button" value="click" onclick="output()"/>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        #main{
+            width: 880px;
+            height: 114px;
+            margin: 0 auto;
+            border: 1px solid gray;
+        }
+        #main>*{
+            float: left;
+        }
+        #main input{
+            width: 30px;
+            height: 114px;
+        }
+        #view{
+            width: 820px;
+            height: 114px;
+            overflow: hidden;
+        }
+        #postList{
+            width: 1640px;
+            height: 114px;
+            position: relative;     
+        }
+    </style>
+    <script>
+        function setPostImage(){
+            var imgTag="";
+            for(i=1; i<=20; i++){
+                imgTag += "<a href='#'><img src ='movie";
+                if(i<10){
+                    imgTag += "0"+i;
+                }else{
+                    imgTag += i;
+                }
+                imgTag += ".png'/></a>";
+            };
+            document.getElementById("postList").innerHTML = imgTag;
+        }
+        var left =0 , stepX= -5;
+        var timer;
+        function postMove(){
+            left += stepX;
+            document.getElementById("postList").style.left= left+"px";
+            if(left<=-820) stepX=5;
+            if(left>=0) stepX=-5;
+        }
+    </script>
+</head>
+<body onload="setPostImage(); timer=setInterval('postMove()',200)">
+<div id="main">
+    <input type="button" value="◁" onclick="stepX=-5;"/>
+    <div id= "view" onmouseover="clearInterval(timer)" onmouseout="timer=setInterval('postMove()',200);">
+    <div id= "postList"></div>
+    </div>
+    <input type="button" value="▷" onclick="stepX=5;"/>
+</div>
+</body>
+</html>

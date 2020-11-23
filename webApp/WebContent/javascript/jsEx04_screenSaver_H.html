@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    ul{margin: 0px auto;padding: 0px auto; list-style-type: none}
+
+    #menu img{
+        width: 100px; 
+        height: 100px;
+        float: left;       
+    }
+    #menu{
+        width: 580px;
+        height: 130px;
+        margin: 0 auto;
+        border: 1px solid black;
+        text-align: center;
+    }
+    #main {
+        width: 580px;
+        height: 600px;
+        margin: 0px auto;
+        padding: 0px;
+        border: 1px solid black;
+        overflow: auto;
+    }
+    #main img{
+        width: 400px;
+        height: 400px;
+    }
+    #main li{
+        margin-left: 50px;
+    }
+
+</style>
+    <script>
+    var win;
+        function saver1(){
+            win = window.open("../img/01.jpg","","width= 1920px,height=1040px");
+            wing.moveTo(10,10);
+        }
+        function saver2(){
+            win = window.open("../img/02.jpg","","width= 1920px,height=1040px");
+        }
+        function saver3(){
+            win = window.open("../img/03.jpg","","width= 1920px,height=1040px");
+        }
+        function saver4(){
+            win = window.open("../img/04.jpg","","width= 1920px,height=1040px");
+        }
+        function saver5(){
+            win = window.open("../img/05.jpg","","width= 1920px,height=1040px");
+        }
+        function move(){
+            wing.moveTo(10,10);
+        }
+    </script>
+</head>
+<body>
+<div id="menu"> 이미지를 클릭하시면 화면 보호기가 실행됩니다.
+    <div id= "menu1"> 
+        <ul>
+            <li><img src="../img/01.jpg" onclick="saver1();"/></li>
+            <li><img src="../img/02.jpg" onclick="saver2();"/></li>
+            <li><img src="../img/03.jpg" onclick="saver3();"/></li>
+            <li><img src="../img/04.jpg" onclick="saver4();"/></li>
+            <li><img src="../img/05.jpg" onclick="saver5();"/></li>
+        </ul>
+    </div>
+</div>
+<div id="main">
+    <ul>
+        <li><img src="../img/06.jpg"/></li>
+        <li><img src="../img/08.jpg"/></li>
+    </ul>
+</div>
+</body>
+</html>

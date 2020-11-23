@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <script>
+    // JSON : JavaScript Obeject Notation 
+    // JSON 변수 설정
+    var data = {
+        username:"hong",
+        tel:"010-1111-1111",
+        addr:"서울시 마포구",
+        email:{
+            first_email:"parkzero3@naver.com",
+            second_email:"parkzero03@daum.net"
+        }    
+    };
+    document.write("username=" +data.username +"<br/>");
+    document.write("tel=" +data.tel+"<br/>");
+    document.write("addr=" + data.addr+"<br/>");
+    document.write("first_email=" + data.email.first_email +"<br/>");    
+    </script>
+</body>
+</html>

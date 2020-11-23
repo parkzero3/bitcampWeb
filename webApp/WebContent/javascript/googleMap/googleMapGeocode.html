@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        #gMap{width: 100%; height: 700px; border: 1px solid black;}
+        #searchFrm{position: absolute; top: 10px; left: 300px;}
+    </style>
+    <script  async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+</head>
+<body>
+<div id="gMap"></div><!-- 지도가 표시되는 곳-->
+<!-- 지명검색-->
+    <div id= "searchFrm">
+    <input type="text" id=" searchMap"/>
+    <input type="button" value="search" onclick="searchMapStart()"/>   
+    </div>
+<script>
+    var latitude,longitude;
+    //  지명 , 클릭시 홈페이지주소, 팝업창 이미지
+    var addr, home, popImg;
+    
+    function setBasicData(){
+        latitude = 37.5729503;
+        longitude = 126.9793578;
+        addr = ['서울 선유도','서울 뚝섬','서울 잠실종합운동장','서울 시청'];
+        home = ['https://www.eclipse.org','https://www.nate.com','https://www.naver.com','https://www.daum.com'];
+        popImg = ['01.jpg','02.jpg','03.jpg','04.jpg'];
+    }
+    // 지도표시하기
+    
+    var map;
+    var geoCode;
+    
+    function initMap(){
+        setBasicData();// 초기값 셋팅
+        
+        var myCenter = new google.maps.LatLng(latitude,longitude); //센터지정
+        
+        var option = {
+                center : myCenter,
+                zoom : 12 ,
+                mapTypeId : google.maps.MapTypeId.ROADMAP
+        } 
+        
+        //                                          지도표시할곳, 옵션
+        map = new google.maps.Map(document.getElementById("gMap"),option);
+        
+        //한글 지명 또는 건물명으로 검색하여 마커 표시 (지오코드가 필요)
+        geoCode = new google.maps.Geocoder()
+            
+            for(i=0;i<addr.length;i++){
+                setMapPosition(addr[1],home[1],popImg[1])};
+                //                                  콜백함수(지명(위도,경도),데이터존재여부 결과 'OK':지명존재)
+            function setMapPosition(addr2,home2,popImg2){
+                geoCode.geocode({'address': addr2},function(results,status){
+                    //지명이 있으면 지도에 표시
+                    if(status =='OK'){
+                        //현재지명의 주소로 센터이동하기
+                        map.setCenter(results[0].geometry.location); //results 에서 위도,경도 받아오기
+                        
+                        //마커표시
+                        var marker = new google.maps.Marker({
+                            map:map, //마커를 표시할 지도
+                            icon:'gmap_pin.png',// 마커이미지
+                            title: results[0]['formatted_address'], //지명의 주소를 구하여 풍선도움말로 표시 
+                            position : results[0].geometry.location//마커를 표시할 위치
+                        });
+                            marker.setMap(map);
+                        
+                        //마커에 마우스 오버시 대화상자 띄우기
+                        var lat = results[0]['geometry']['location']['lat']();// 위도구하기
+                        var lng = results[0]['geometry']['location']['lng']();// 경도구하기
+                        
+                        var popMsg = "위도" +lat;
+                            popMsg += "<br/>경도:"+lng;
+                            popMsg += "<br/>주소"+ results[0]['formatted_address'];
+                            popMsg += "<br/> <a href=''"+home[idx]+"><img src='../../img/"+popImg[idx]+"' width='80' height='50'/></a>";
+                            popMsg += "<br/> 홈페이지 주소";
+                        
+                        var info = new google.maps.InfoWindow({content:popMsg});
+                        
+                        //마우스 오버시 대화상자 표시하는 이벤트 등록
+                        google.maps.event.addListener(marker,'mouseover',function(){info.open(map,marker)});
+                        
+                       }else{
+                           console.log(addr[i]+"는 존재하지않는 지명입니다.");
+                       }// (end) if
+                    
+                    }// (end) function
+                     
+                );//(end) geocode
+              
+            } //setMapPosition
+        }//initMap
+    
+        function searchMapStart(){
+            if(document.getElementById("searchMap").value==""){
+               alert("검색할 지명, 또는 건물명을 입력후 사용하세요");
+                return false;
+               }
+            setMapPosition(document.getElementById("searchMap").value,'https://www.daum.net','05.jpg')
+        }
+    
+</script>    
+</body>
+</html>

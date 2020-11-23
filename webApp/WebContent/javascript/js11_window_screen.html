@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+   var win ;
+    function popupOpen(){
+        //창을 생성하여 띄운다.
+        //          내용(경로),창이름,옵션(사이즈크기 , 위치)
+       win = window.open("popup.html","w1","width=400px,height=400px,left=200px,top=200px");
+        
+    }
+    function popupClose(){
+        // 윈도우객체.close(), self.close(); --> 자신의 window 를 닫는다.
+        //self.close();
+        win.close();
+       
+    }
+    function windowMove(){
+        //절대좌표로 이동
+        //win.moveTo(500,500);
+        //상대좌표로 이동
+         win.moveBy(10,10);
+    }
+    function windowResize(){
+        // 절대사이즈 width , height
+        //win.resizeTo(500,500);
+        //상대사이즈
+        win.resizeBy(200,200);
+    }
+    function getWindowInfo(){
+        var info = "";
+        //윈도우 객체의 정보 얻어오기
+        //좌표구하기
+        info += "x좌표=" + win.screenX + "<br/>";
+        info += "y좌표=" + win.screenY + "<br/>";
+        //윈도우의 폭과 높이 구하기
+        //1. 전체 폭과 높이
+        info += "창의 width =" + win.outerWidth + "<br/>";
+        info += "창의 height =" + win.outerHeight + "<br/>";
+        //2. 내용을 표시하는 공간의 폭과 높이
+        info += "내용의 width=" +win.innerWidth +"<br/>";
+        info += "내용의 height=" +win.innerHeight +"<br/>";
+        
+        //화면의 폭과높이 (해상도)
+        info += "화면폭 =" +screen.width +"<br/>";
+        info += "화면높이 =" +screen.height+"<br/>";
+        //작업표시줄을 제외한 폭과 높이 구하기
+        info += "작업표시줄을 제외한 화면폭=" + screen.availWidth +"<br/>";
+        info += "작업표시줄을 제외한 화면높이 =" +screen.availHeight+"<br/>";
+        
+        document.getElementById("winInfo").innerHTML = info;
+    }
+        
+    </script>
+</head>
+<body onload="popupOpen();getWindowInfo()">
+<input type="button" value="팝업띄우기" onclick="popupOpen()"/>
+<input type="button" value="팝업닫기" onclick="popupClose()"/>
+<input type="button" value="윈도우이동" onclick ="windowMove()"/>
+<button onclick="windowResize()">윈도우크기조절</button>   
+    <div id="winInfo"></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+    다운로드 : http://jqueryui.com/download/all/
+    jquery ui 를 이용한다.
+
+1. jquery-ui.min.css
+2. jquery
+3. jquery-ui.min.js
+
+
+-->    
+    
+<link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+
+<style>
+    #dialogOpen,#schedule {font-size: 2em; text-align: center; background-color: pink;}
+    #schedule {background: lightblue;}
+    img{width: 100%}
+    h1{text-align: center;} 
+    /*.ui-widget-overlay{opacity: 0.3; background-color: gray;}*/
+</style>  
+    
+    <script>
+    
+    $(function(){
+        //dialog 클릭시 열기설정
+        
+        $("#dialogOpen").click(function(){
+            $("#dialog").dialog('open');
+            $(".ui-widget-overlay").css({opacity:0.3, backgroundColor:'gray'});
+        });
+        
+        //dialog 설정
+        $("#dialog").dialog({
+            autoOpen : false// 시작시 자동으로 다이얼로그 오픈 (true(기본)/false)
+            ,buttons : {
+                //다이얼로그 창에 표시될 버튼
+                submit:function(){
+                    //제목, 날짜 를 schedule div 에 쓰기
+                    var title = $("#event-name").val();
+                    var date = $("#event-date").val();
+                    
+                    $("#schedule").append("<p>"+date+":"+title+"<p/>");
+                    
+                    //기존에 있던 선택된 일정 지우기
+                    $("#event-name").val('');
+                    $("#event-date").val('');   
+                },
+                reset:function(){
+                    $("#event-name").val('');
+                    $("#event-date").val('');
+                },
+                close:function(){
+                    $("#event-name").val('');
+                    $("#event-date").val('');
+                    $("#dialog").dialog('close');
+                }
+            }//buttons
+            ,modal : true //true , false (기본)   // 뒷 화면 비활성화 시키기
+            ,overlay:{
+                opacity:0.3
+            }
+        });
+        
+        //DatePicker 설정
+        $("#event-date").datepicker({
+            dateFormat : 'yy년 mm월 dd일',
+            numberOfMonths: 3 //한번에 보여지는 개월수
+        });    
+    });
+    </script>
+</head>
+<body>
+    <!-- 컨텐츠 -->
+<div id= "dialogOpen"> 일정등록 </div>
+    <hr/>
+<div id="schedule"> </div>
+    <img src="../img/01.jpg"/>
+    
+<!-- 다이얼 로그 내용 -->
+    <!-- title 의 속성의 값이 다이얼로그 창의 제목으로 설정됨-->
+    <div id="dialog" title="스케쥴 등록">
+        <h1> 일정을 등록하세요 </h1>
+        <label for="event-name">일정 제목:</label> <input type="text" id="event-name"/><br/>
+        <label for="event-date">날짜 선택:</label> <input type="text" id="event-date"/>
+        
+    </div>
+</body>
+</html>

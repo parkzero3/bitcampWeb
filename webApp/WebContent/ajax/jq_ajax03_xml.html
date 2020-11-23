@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>
+<script>
+	$(function(){
+		$("#btnXml").on('click',function(){
+			$.ajax({
+				url:"ajax_data.xml",
+				dataType:"xml",
+				success:function(result){
+					//result를 $(result)로 변환하여 데이터를 얻어올수있다.
+					//record 수 구하기
+					var cnt = $(result).find('record').length;
+					//console.log(cnt);
+					
+					if(cnt>0){
+						$(result).find('record').each(function(){
+							var tag ="<tr>";
+							tag += "<td>"+ $(this).find("username").text()+"</td>";
+							tag += "<td>"+ $(this).find("tel").text()+"</td>";
+							tag += "<td>"+ $(this).find("address").text()+"</td></tr>";
+							$("#juso").append(tag);
+						});
+					}
+				},
+				error:function(request,status,error){
+					console.log("code="+request.code);
+					console.log("message="+request.responseText);
+					console.log("error="+error);
+				}
+			});
+		});
+	});
+</script>   
+</head>
+<body>
+<div class="container">
+	<input type="button" id="btnXml" value="클릭하시면 서버에서 xml파일의 정보를 비동기 식으로 가져옵니다."/>
+	<table class ="table" id ="juso"></table>
+</div>
+</body>
+</html>

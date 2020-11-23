@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+    function scrollMove(){
+        //절대 위치로 이동 (x,y)
+       // window.scrollTo(0,600);
+        //상대 위치로 이동
+        window.scrollBy(0,20);
+    }
+    </script>
+</head>
+<body>
+<button onclick="scrollMove();">스크롤바 이동</button><br/>
+<script>
+    var img = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'];
+    
+    for(i=0; i<img.length; i++){
+        document.write("<img src= '../img/"+img[i]+"'/>");
+        if(i==1){
+           document.write("<button onclick='scrollMove();'>스크롤바 이동</button><br/>");
+        }
+    }
+</script>
+</body>
+</html>

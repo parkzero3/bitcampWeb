@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    
+    
+    ul{margin: 0px;padding: 0px;list-style-type: none;}
+    #mainDate{
+        width: 440px;
+        height: 440px;
+        padding: 20px;
+        margin: 0 auto;
+        border: 1px solid gray;
+        background-image: url(../img/01.jpg);
+        background-size: 100%; 70vh;
+    }
+    #clock{
+        height: 100px;
+        line-height: 100px;
+        margin-bottom: 50px;
+        background-color: white;
+        text-align: center;
+        font-size: 4em;
+        color: aqua;
+        opacity: 0.7;
+    }
+    #calendar{
+        height: 290px;
+        background-color: white;
+        opacity: 0.7;
+    }
+    #title {
+        line-height: 50px;
+        text-align: center;
+        font-size: 2em;
+    }
+    #calendar li {
+        float: left;
+        width: 14.28%;
+        text-align: center;
+        font-size: 1.5em;
+    }
+</style>
+<script>
+    var img = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'];  
+    
+    //데이트 생성하기
+    var now = new Date(); // 현재 날짜와 시간
+    var year = now.getFullYear();//년도
+    var month = now.getMonth()+1;//월
+    //1일에 대한 요일
+    //현재 날짜를 1일로 변경 (그래야 해당하는 월의 요일을 구할수있음 setDate.)
+    now.setDate(1); // now = new Date(year,month-1,1);
+    var week = now.getDay(); // 일->0 , 월->1
+    //마지막날 - 이번달 0일인경우 전달의 마지막날이 구해짐 
+    var lastday= new Date(year,month,0).getDate();  // 10월0일 == 9월30일
+    
+    //달력 만들기
+    function setCalendar(){
+        // title (년,월)
+        var tag ="<div id='title'>"+year+"년"+month+"월</div>"
+        var weekName= ['일','월','화','수','목','금','토'];
+        tag+="<ul>";
+        for(i=0;i<weekName.length; i++){
+            tag+= "<li>"+ weekName[i]+"</li>";
+        }
+        //공백
+        for(i=0; i<week; i++){
+            tag+="<li>&nbsp;</li>";
+        }
+        //날짜
+        for(i=1; i<= lastday; i++){
+            tag+="<li>"+i+"</li>";
+        }
+        tag+="</ul>";
+        document.getElementById("calendar").innerHTML = tag;
+    }
+    
+    var idx = 0; //이미지의 index로 사용할 변수
+    //시계 1초에 한번씩 호출
+    function setClock(){
+        //현재 날짜 + 시간
+        now = new Date();
+        //시 , 분, 초 
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        //화면에 표시 00:00:00
+        //시 ,분, 초 문자열만들기
+        var ClockTxt = "";
+        if(hour<10){
+            ClockTxt+= "0"+hour;
+        }else{
+            ClockTxt += hour;
+        }
+        if(minute<10){
+            ClockTxt+= ":0"+minute;
+        }else{
+            ClockTxt += ":"+minute;
+             }
+        if(second<10){
+            ClockTxt+= ":0"+second;
+        }else{
+            ClockTxt += ":"+second;
+             }
+        document.getElementById("clock").innerHTML=ClockTxt;
+        document.getElementById("mainDate").style.backgroundImage = "url(../img/"+img[idx++]+")";
+        if(idx>=img.length){
+           idx=0;
+           }
+        
+    }
+    
+</script>           
+</head>
+<body onload="setCalendar(); setInterval('setClock()',1000);">
+<div id="mainDate">
+    <div id="clock"></div>
+    <div id="calendar"></div>
+</div>
+</body>
+</html>

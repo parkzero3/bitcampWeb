@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        
+    </style>
+    <script>
+         function change1() {
+            document.getElementById("i").style.width = "600px";
+            document.getElementById("i").style.height = "600px";
+        }
+        function change2() {
+            document.getElementById("i").style.width = "400px";
+            document.getElementById("i").style.height = "400px";
+    }
+    </script>
+</head>
+<body>
+    <div style="border: 3px solid black; width: 400px; height: 400px; overflow: hidden;">
+    <img src ="../img/01.jpg" id="i" onmouseover="change1()" onmouseout="change2()"/>
+    </div>
+</body>
+</html>

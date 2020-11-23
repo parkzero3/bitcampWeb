@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>   
+</head>
+<body> 
+<div class="container">
+    <h1> 페이징 하기</h1>
+    <!--
+        .pagination : 리스트 페이징하기 ul 에 작성
+        .breadcrumb : 페이지 배경을 회색으로 보여줌
+
+
+        .page-link : 페이지 간격 여백 설정
+        .page-item 
+        .pagination-lg,sm,md : 크기조정
+        .active : 현재페이지 강조
+        .disabled : 비활성화
+        .pagination justify-content-center 가운데 위치 (end)오른쪽 끝
+    -->
+    
+    <ul class="pagination pagination-lg">
+        <li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+    
+    <hr/>
+    
+    <ul class="breadcrumb pagination-lg">
+        <li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>    
+</div>
+</body>
+</html>

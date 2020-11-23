@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        img{width: 500px; height: 500px;
+            z-index: 1;
+        }
+        #view{
+            position: absolute;
+            left: 360px;
+            text-align: center;
+        }
+        #timer{
+            background-color: white;
+            position: absolute;
+            left: 500px;
+            top: 30px;
+            font-size: 40px;
+            text-align: center;
+            z-index: 5;
+        }
+        #viewDate{
+            background-color: white;
+            position: absolute;
+            left: 490px;
+            top : 150px;
+            font-size: 30px;
+            z-index: 10;
+        }
+        #viewDate>table{
+            border: 0px solid white;
+        }
+        #viewDate td{
+             border: 0px solid white;
+        }
+        
+    </style>
+    <script>
+    var img = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'];    
+        var i =0;
+     function changeImage(){
+            document.getElementById("view").innerHTML="<img src ='../img/"+img[i++]+"'/>";
+            //index를  0으로 초기화
+            if(img.length<= i) i=0;
+        }   
+
+
+    function getTime(){
+        var date = new Date();
+        var timeTxt = date.getHours()+ "시";
+        timeTxt += date.getMinutes() + "분";
+        timeTxt += date.getSeconds() + "초";
+        
+        document.getElementById("timer").innerHTML = timeTxt;
+        }
+
+    function printCalendar(){
+	   var cal=new Date();  // 데이트 객체 생성
+	   var year=cal.getFullYear(); // 현재 년도
+	   var month=cal.getMonth()+1; // 현재 월
+	   var date=cal.getDate();   // 오늘 날짜
+	   var firstDay=new Date(year,month-1,1).getDay(); // 현재 월의 첫째 요일 값 0~6  1
+	   var lastDay=new Date(year,month,0).getDate(); // 마지막 날짜
+	   var cnt=0; // 줄바꿈하기 위한 카운트 변수
+	   var calendar="<table style='text-align:center;' border='1'>";
+	   calendar+="<caption>"+year+"년 "+month+"월</caption>";
+	
+        calendar+="<tr>";
+        calendar+="<td style=color:red><b>일</td>";
+        calendar+="<td><b>월</td>";
+        calendar+="<td><b>화</td>";
+        calendar+="<td><b>수</td>";
+        calendar+="<td><b>목</td>";
+        calendar+="<td><b>금</td>";
+        calendar+="<td style=color:blue><b>토</td>";
+        calendar+="</tr>";
+
+
+        calendar+="<tr>";
+        for(var i=0;i<firstDay;i++){ // 공백 넣기
+            calendar+="<td>&nbsp;</td>";
+            cnt++;
+        }	
+        for(var i=1;i<=lastDay;i++){ // 숫자 출력
+            if(cnt==0){ // 일요일이면 빨간색
+                calendar+="<td style=color:red>";
+                calendar+=i;
+                calendar+="</td>";
+                cnt++;
+            }else if(cnt==6){ // 토요일이면 파란색
+                calendar+="<td style=color:blue>";
+                calendar+=i;
+                calendar+="</td>";
+                cnt++;
+            }else{
+                calendar+="<td>";
+                calendar+=i;
+                calendar+="</td>";
+                cnt++;	
+            }		
+
+            if(cnt%7==0){
+                calendar+="</tr><tr>"; //줄 바꿈
+                cnt=0;;
+            }
+        }
+        for(var i=0;i<7-cnt;i++)
+            calendar+="<td>&nbsp;</td>"; // 마지막 날짜 이후의 남은 공백 넣기
+
+        calendar+="</tr>";
+
+
+        document.getElementById("viewDate").innerHTML=calendar;
+    }
+    
+        
+    </script>
+</head>
+<body onload ="setInterval('getTime()',1000);setInterval('changeImage()',2000);printCalendar();">
+    <div id= "timer"></div>
+    <div id="viewDate"></div>
+    <div id= "view"> </div>
+
+</body>
+</html>

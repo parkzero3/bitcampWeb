@@ -1,0 +1,19 @@
+@charset "UTF-8";
+ul{background-color:#ddd}
+/*
+	가상클래스 좌측에 : 붙힘
+	
+	a태그는 밑줄과 각상태의 글자색이 기본설정되어있다.html에 설정된것
+	
+	:link -> 링크를 걸었을때
+	:visited -> 방문했을때
+	:hover -> 마우스 오버일때
+	:active -> 마우스 누른상태일때
+											html 취소선 태그: del,s,strike태그
+	text -decoration 속성 : 밑줄(underline) , 윗줄 (overline), 취소선(line-through) , 선없음(none)
+
+*/
+a:link{text-decoration:none; color:gray}
+a:visited{text-decoration:none; color:red ; font-weight:bold;}
+a:hover{text-decoration:underline; color:#00f}
+a:active{text-decoration:none; color:#f00}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        img{width: 100px; height: 100px;}
+        #mainDiv{
+            background-color: yellow;
+            width: 510px;
+            margin: 0 auto;
+        }
+        
+    </style>
+    <script>
+      function setImage(){
+            var imgTag="";
+            var cnt= 0;
+          for(j=1;j<=5;j++){
+            for(i=1; i<=10; i++){
+                imgTag += "<img src ='../img/";
+                    if(i<10){
+                        imgTag += "0"+i;
+                    }else{
+                        imgTag += i;
+                    }
+                        imgTag += ".jpg' id='img"+ (cnt++) +"'/>";
+                };
+                document.getElementById("mainDiv").innerHTML = imgTag; 
+                }           
+            }
+        
+        function funcPopup(){
+            console.log("test");
+        }
+        
+    </script>
+</head>
+<body onload="setImage()">
+<div id="mainDiv">
+    <div id = "content"></div>
+</div>
+</body>
+</html>

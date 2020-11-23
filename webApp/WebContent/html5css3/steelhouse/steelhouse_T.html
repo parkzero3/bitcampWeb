@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        body{background-color: rgb(146,204,101);}
+        ul{margin: 0px;padding: 0px;list-style-type: none;}
+        #content{
+            width: 1060px;
+            margin: 0px auto;
+            background-color: white;
+        }
+        /*상단배너*/
+        header{
+            height: 333px;    
+            padding:0px 60px 0px 165px;     
+        }
+        /*메뉴*/
+        #menu>img,#menu>ul,#menu>ul>li,#news,#gallery{
+            float:left;
+        }
+        #menu a:link, #menu a:visited{
+            text-decoration: none;
+            color:white;
+        }
+        #menu a:hover{
+            text-decoration: none;
+            color:yellow;
+        }
+        #menu ul {
+            width: 835px;
+            background-color: rgb(146,204,101);
+        }
+        #menu li{
+            height:72px;
+            line-height: 72px;
+            padding:0px 35px 0px 40px;   
+        }
+        /* 작은 배너*/
+        #banner{
+/*            height: 105px;*/
+            padding:0px 60px 0px 165px;  
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <header>
+        <img src="img/css_gaon_02.jpg"/><img src="img/css_gaon_03.jpg"/><img src="img/css_gaon_04.jpg"/><img src="img/css_gaon_05.jpg"/><img src="img/css_gaon_06.jpg"/>
+    </header>
+    <nav id="menu" style="background-color: white; overflow: auto">
+        <img src="img/css_gaon_08.jpg"/>
+        <ul>
+            <li><a href="#">COMPANY</a></li>
+            <li><a href="#">STEELHOUSE</a></li>
+            <li><a href="#">ARCHITECTURE</a></li>
+            <li><a href="#">INTERIOR</a></li>
+            <li><a href="#">COMMUNITY</a></li>
+        </ul>
+    </nav>
+    <div id="banner">
+        <img src="img/css_gaon_15.jpg"/><img src="img/css_gaon_16.jpg"/><img src="img/css_gaon_17.jpg"/><img src="img/css_gaon_18.jpg"/><img src="img/css_gaon_19.jpg"/>
+    </div>
+    <style>
+        #news{
+            width: 375px;
+            padding : 0px 85px 0px 165px;
+            background: white;
+           
+        }
+        #gallery {
+            width: 376px;
+            background: white;
+            
+        }
+        #news a:link,#news a:visited,#news a:hover{
+            text-decoration: none;
+            color : gray;
+        }
+        #news li{
+            padding: 10px;
+            margin: 10px 0px;
+            border: 2px solid #ddd;
+        }
+        #gallery li{
+            float: left;
+            margin: 6px;
+            height: 80px;
+            text-align: center;
+        }
+        #gallery>ul img{
+            width: 80px;
+        }
+        #gallery a:link, #gallery a:visited, #gallery a:hover{
+            text-decoration: none;
+            color : gray;
+            font-size: 12px;
+            
+        }
+        
+    </style>
+    <div id="news">
+        <img src="img/css_gaon_22.jpg"/>
+        <ul>
+            <li>01. <a href="#">자주 하시는 질문</a></li>
+            <li>02. <a href="#">질문과 답변</a></li>
+            <li>03. <a href="#">채용 안내</a></li>
+        </ul>
+    </div>
+    <div id="gallery">
+        <img src="img/css_gaon_24.jpg"/>
+        <ul>
+            <li><a href="#"><img src="img/g1.png"/><br/>멋진 인테리어</a></li>
+            <li><a href="#"><img src="img/g2.png"/><br/>이쁜실내</a></li>
+            <li><a href="#"><img src="img/g3.png"/><br/>아파트단지</a></li>
+            <li><a href="#"><img src="img/g1.png"/><br/>회의실 내부</a></li>
+            <li><a href="#"><img src="img/g2.png"/><br/>멋진 인테리어</a></li>
+            <li><a href="#"><img src="img/g3.png"/><br/>이쁜실내</a></li>
+            <li><a href="#"><img src="img/g1.png"/><br/>아파트 단지</a></li>
+            <li><a href="#"><img src="img/g2.png"/><br/>회의실 내부</a></li>
+            
+        </ul>
+    </div>
+    <footer>
+        <img src="img/css_gaon_31.jpg" style="margin-left: 165px;"/>
+    </footer>
+</div>
+</body>
+</html>

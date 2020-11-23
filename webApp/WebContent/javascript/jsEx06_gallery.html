@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        #imgAll{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        #imgAll>img {
+            width: 20%;
+            height: 200px;
+        }  
+        /* 모달 */
+        #modal{
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: gray;
+            opacity: 0.5;
+            
+        }
+        /* 큰이미지 */
+        
+        #bigShow{
+            width: 400px;
+            height: 400px;
+            border: 1px solid gray;
+            background-color: white;
+            position: absolute;
+            left : 200px;
+            top: 50px;
+        }
+        #title {
+            font-size: 1.5em;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+        #bigImg{
+            width: 100%;
+            height: 360px;
+        }
+        #modal,#bigShow{
+            display: none;
+        }
+    </style>
+    <script>
+        var imgName =['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg',
+                     '01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg',
+                     '01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg',
+                     '01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg',
+                     '01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg'];
+        function imgListSet(){
+            var tag ="";
+            for(idx=0;idx<imgName.length;idx++){
+                tag += "<img src='../img/"+imgName[idx]+"' onclick='bigImgShow(this.src)'/>";
+            }
+            document.getElementById("imgAll").innerHTML =tag;
+        }
+        // 큰이미지 보여주기
+        function bigImgShow(filename){
+            //컨텐츠의 높이를 구한다.
+            //var body = document.body.offsetHeight;
+            var html = document.documentElement.scrollHeight; // 스크롤바의 높이로 바디 높이를 구하는방법 <- margin 포함
+            
+            //클릭위치 좌표
+            var left = event.clientX;
+            var top = event.clientY;
+            
+            //modal 높이 설정, 보여주기
+            document.getElementById("modal").style.height = html+"px";
+            document.getElementById("modal").style.display= "block";
+            
+            //큰이미지 보여주기
+            var big = document.getElementById("bigShow");
+            big.style.display ="block";
+            big.style.left = left-200+"px"; // 좌측으로 절반픽셀 이동시키기
+            big.style.top = top+5+"px";
+         
+            //파일경로 http://127.0.0.1:52907/img/08.jpg  -> slice 또는 subStr로 파일명 잘라내기
+            var file = filename.substr(filename.lastIndexOf('/')+1);
+            document.getElementById("title").innerHTML=file;
+            document.getElementById("bigImg").src=filename;
+        }
+        
+        function modalBigHidden(){
+            document.getElementById("bigShow").style.display="none";
+            document.getElementById("modal").style.display="none";
+        }
+        
+        var divX, divY, eventX, eventY, moveX,moveY, flag=false; // div 의 x,y 좌표와 마우스down x,y 좌표를 변수지정 flag (스위치기능)
+        
+        function noticeMoveStart(){
+//            divX = document.getElementById("notice").style.left;  //결과 : 300px
+            divX = document.getElementById("bigShow").offsetLeft;    //결과 : 300
+            divY = document.getElementById("bigShow").offsetTop;
+            
+            
+            //클릭한 위치의 x , y 좌표구하기
+            eventX = event.clientX;
+            eventY = event.clientY;
+            
+            flag = true;
+            document.onmousemove = noticeMove;
+        }
+        function noticeMove(){
+            if(flag){
+            //마우스 이동한곳의 좌표
+            moveX = event.clientX;
+            moveY = event.clientY;
+            
+            //이동한 픽셀 계산하기       
+            var x = moveX - eventX;
+            document.getElementById("bigShow").style.left = divX+ x + "px";
+            var y = moveY - eventY;
+            document.getElementById("bigShow").style.top = divY+ y + "px";
+            }
+        }
+        function flagSet(){
+            flag = false;
+        }
+        document.onmouseup = flagSet;
+        
+    </script>
+</head>
+<body onload= "imgListSet()">
+<div id="imgAll"></div>
+    <div id="modal"></div>
+    <div id="bigShow" onmousedown="noticeMoveStart()">
+        <div id ="title"></div>
+        <img src="../img/01.jpg" id="bigImg" onclick="modalBigHidden()"/>
+    </div>
+    
+</body>
+</html>

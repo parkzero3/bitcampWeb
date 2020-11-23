@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script> 
+    <script>
+        //검색어를 입력하면 호출하는 이벤트
+        $(function(){
+           $("#search").keyup(function(){
+                var word = $("#search").val().toLowerCase(); //toLowerCase(), toUpperCase() 
+                $("#memberlist>tr").filter(function(){
+                    //var trTxt = $(this).text().toLowerCase(); //입력받은값은 val , 데이터는 text 
+                    //var idx= trTxt.indexOf(word); // trTxt.search(word);
+                    var trTxt = $(this).text().toLowerCase().indexOf(word); // -1 ,0,1,2,3,...
+                    // true :보임 ,false :숨김
+                    $(this).toggle(trTxt>-1);
+                });    
+           }); 
+        });
+    </script>    
+</head>
+<body>
+<div class="container">
+    <h1>Filter Test</h1>
+    <input type="text" id="search" placeholder="검색할 내용" class="form-control">
+    <hr/>
+    <table class="table">
+        <thead>    
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Phone</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody id="memberlist">
+            <tr>
+                <td>mary</td>
+                <td>doolery</td>
+                <td>010-1234-5678</td>
+                <td>mary1234@naver.com</td>
+            </tr>
+            <tr>
+                <td>david</td>
+                <td>moe</td>
+                <td>010-1111-1111</td>
+                <td>david1234@nate.com</td>
+            </tr>
+            <tr>
+                <td>ddangkong</td>
+                <td>tiger</td>
+                <td>010-2222-2222</td>
+                <td>ddangkong1111@naver.com</td>
+            </tr>
+            <tr>
+                <td>ddang</td>
+                <td>bull</td>
+                <td>010-3333-3333</td>
+                <td>kong125@naver.com</td>
+            </tr>
+            <tr>
+                <td>baram</td>
+                <td>mool</td>
+                <td>010-4444-4444</td>
+                <td>ddang1747@naver.com</td>
+            </tr>               
+        </tbody>    
+    </table>
+</div>    
+</body>
+</html>

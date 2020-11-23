@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #reply{width: 400px;height: 100px;}
+</style>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        $(function(){
+            $("#reply").keyup(function(){
+                //#reply 글자수 구하기
+                var cnt = $("#reply").val().length;
+                $("span").text(100-cnt); //text(),html() 사용가능
+                
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div> 
+    남은 문자수 : <span>100</span>
+</div>    
+    <textarea id="reply" maxlength="100">
+    </textarea>
+
+</body>
+</html>

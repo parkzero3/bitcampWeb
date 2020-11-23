@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>.c1{color: green; font-size: 2em}</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       //hover : 마우스 오버와 아웃을 가진 이벤트
+       var cnt =0;
+        $('h1').hover(function(){
+            cnt++;// 이벤트 발생 횟수 증가
+            //마우스 오버일때
+            $(this).css("color","red");
+            
+            if(cnt>5){
+                //이벤트 종료
+                $(this).off();
+            }
+        },function(){
+            //마우스 아웃일때
+            $(this).css("color","blue");
+        });
+        
+        // one(): 한번만 이벤트 처리하기
+        $('h2').one('mouseover',function(){
+            $(this).addClass('c1');
+            console.lof('1111');
+        });
+    });
+    </script>
+</head>
+<body>
+<h1> hover 이벤트처리 테스트 </h1>
+<h1> hover 이벤트처리 테스트 </h1>
+<h1> hover 이벤트처리 테스트 </h1>
+<h1> hover 이벤트처리 테스트 </h1>
+<h1> hover 이벤트처리 테스트 </h1>
+    
+<h2> one 이벤트처리 테스트</h2>
+<h2> one 이벤트처리 테스트</h2> 
+<h2> one 이벤트처리 테스트</h2> 
+<h2> one 이벤트처리 테스트</h2> 
+<h2> one 이벤트처리 테스트</h2> 
+    
+</body>
+</html>

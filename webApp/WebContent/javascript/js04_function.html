@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="script.js"></script>
+    <script>
+    /* 함수: 페이지가 로딩될때 실행되지 않고 호출 해줘야 실행된다.*/
+    function func1(){
+        var tag = "<ul>";
+        for (i=2; i<9;i++){
+            tag += "<li> 5 * "+ i +"="+(5*i)+"</li>";
+        }
+        tag += "</ul>";
+        document.getElementById("view").innerHTML = tag;
+    }
+    function func2(a,b){
+        
+    }
+    //func1(); //함수 호출
+    </script>
+</head>
+<body>
+<input type="button" value="클릭하세요" onclick = "func3()"/>
+<div id="view" style="background-color: red"></div>
+    <script>
+    func1(); // 함수호출
+    </script>
+</body>
+</html>

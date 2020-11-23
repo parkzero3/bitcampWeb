@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#mainDiv>img{
+		width:100%;
+	}
+	body,ul,li{
+		margin: 0;
+		padding:0;
+	}
+	ul{
+		list-style-type: none;
+		padding: 0;
+	}
+	#mainDiv{
+		width:800px;
+		margin: 0 auto;
+	}
+	/*링크*/
+	#navi a:link,#navi a:visited{
+		text-decoration: none;
+		font-size: 1.2em;
+		color:gray;
+		font-weight: bold;
+	}
+	#navi a:hover{
+		text-decoration: none;
+		font-size: 1.2em;
+		color:black;
+		font-weight: bold;
+	}
+	/*로고*/
+	header{
+		height: 200px;
+		font-size: 4em;
+		text-align: center;
+		line-height: 200px;
+		border-bottom: 3px solid gray;
+	}
+	/*네비게이션*/
+	   #navi {
+		   height:50px;
+		   border-bottom:2px solid gray;
+	   }
+	   #navi li{
+		   text-align:center;
+		   line-height:50px;
+	   }  
+	   #navi>li{
+		   float:left;
+		   width:20%;
+		   height:50px;
+	   }  
+	   #navi>li>ul{
+		   display:none;
+		   border:1px solid gray;
+		   z-index:1000;
+		   position:relative;
+		   background-color:white;
+	    }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#navi>li").hover(function(){
+			$(this).children("ul").css("display","block");
+		},function(){
+			$(this).children("ul").css("display","none");
+		});
+	});
+</script>
+</head>
+<body>
+<div id="mainDiv">
+	<header>GIRLSDAILY</header>
+	<ul id="navi">
+		<li>
+			<a href="#">OUTER</a>
+			<!-- 서브메뉴 -->
+			<ul>
+				<li><a href="#">가디건</a></li>
+				<li><a href="#">자켓&점퍼</a></li>
+				<li><a href="#">베스트</a></li>
+				<li><a href="#">코트</a></li>
+				<li><a href="#">세일</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">TOP</a>
+			<!-- 서브메뉴 -->
+			<ul>
+				<li><a href="#">Tee</a></li>
+				<li><a href="#">Cami</a></li>
+				<li><a href="#">knit</a></li>
+				<li><a href="#">shirt&Blouse</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">DRESS</a>
+			<!-- 서브메뉴 -->
+			<ul>
+				<li><a href="#">all</a></li>
+				<li><a href="#">바캉스룩</a></li>
+				<li><a href="#">SET</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">BOTTOM</a>
+			<!-- 서브메뉴 -->
+			<ul>
+				<li><a href="#">힐링투엘브</a></li>
+				<li><a href="#">히든벤딩시리즈</a></li>
+				<li><a href="#">스커트</a></li>
+				<li><a href="#">팬츠</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">SUMMER</a>
+			<!-- 서브메뉴 -->
+			<ul>
+				<li><a href="#">HOLI스웸웨어</a></li>
+				<li><a href="#">at 22c</a></li>
+				<li><a href="#">바캉스룩</a></li>
+			</ul>
+		</li>
+	</ul>
+	<img src="../img/01.jpg"/>
+</div>
+</body>
+</html>

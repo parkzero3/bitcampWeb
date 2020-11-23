@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body,ul,li {margin: 0px;padding: 0px;}
+    ul{list-style-type: none;}
+    #content{width: 800px; margin: 0 auto}
+    #content li {float: left; width: 13%; height: 40px; border-bottom: 1px solid gray;
+                line-height: 40px;            
+    }
+    /* 제목 사이즈*/
+    #boardList>li:nth-child(6n+3){
+        width: 45%;
+    }
+    #boardList>li:nth-child(6n+1){
+        width: 3%;
+    }
+</style>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        var tag ="";
+        for(i=1000;i>950;i--){
+            tag = "<li><input type='checkbox' value='"+i+"'/></li>";
+            tag += "<li>"+i+"</li>";
+            tag += "<li>제목"+i+"</li>";
+            tag += "<li>작성자"+i+"</li>";
+            tag += "<li>2020-09-28</li>";
+            tag += "<li>조회수 5</li>";
+            $("#boardList").append(tag);
+       } 
+        //$('#allCheck').change(function(){});
+        $('#allCheck').on("change",function(){
+//            현재의 cheacked 가 true 면 li 전부 checked 
+//            var r = $('#allCheck').prop("checked")
+//            $("boardList input").prop("checked",r); // 전체선택 누를시 인풋박스 전체 적용시키기
+            
+            $('#boardList input').prop("checked", $("#allCheck").prop("checked"));
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="content">
+        <input type="checkbox" id="allCheck"/> 전체선택
+        <ul id="boardList"></ul>
+    </div>
+</body>
+</html>

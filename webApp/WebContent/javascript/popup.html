@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        body{margin: 0px}
+        img{width: 100%; height: 98vh;}
+        #bottom{
+            position: absolute;
+            bottom:10px;
+        }
+    </style>
+    <script>
+    function cookieSet(){
+        
+        //chk 체크여부 true, false 여부
+        if(document.getElementById("chk").checked){
+            //소멸시점을 위하여 현재날짜구하기
+            var now = new Date();
+            //오늘날짜에 하루 추가하기 
+            now.setDate(now.getDate()+1);
+            //체크 했을때 -> 쿠키를 저장
+            // 필요한것 (변수 = 값 ; 저장위치; expires=(소멸시점) )
+            var cookieData = "notice=test;path=/;expires="+now;
+            document.cookie = cookieData; //쿠키에 기록
+        }
+        window.close(); //self.close();
+    }
+    </script>
+</head>
+<body>
+<img src ="../img/01.jpg"/>
+    <div id="bottom">
+        <input type="checkbox" id="chk" /> 하루동안 그만보기
+        <input type="button" value="닫기" onclick="cookieSet()"/>
+    </div>
+</body>
+</html>

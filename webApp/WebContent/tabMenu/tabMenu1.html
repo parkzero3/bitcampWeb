@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        /*메뉴*/
+        #tabMenuMain>ul{
+            margin: 0px;
+            padding: 0px; 
+            list-style-type: none;
+            overflow:auto;
+        }
+        #tabMenuMain>ul>li{
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            padding-right: 20px;
+        }
+        #tabMenuMain{
+            width: 600px;
+            height: 560px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+        }
+        /* 라디오 버튼 숨기기*/
+        #tabMenuMain>input{display: none}
+        /* 컨텐츠 숨기기*/
+        #tabMenuMain>div{display: none}
+        /* 라디오버튼 선택시 해당 컨텐츠 보이기*/
+        #m1:checked~div:nth-of-type(1){display: block;}
+        #m2:checked~div:nth-of-type(2){display: block;}
+        #m3:checked~div:nth-of-type(3){display: block;}
+        #m4:checked~div:nth-of-type(4){display: block;}
+        #m5:checked~div:nth-of-type(5){display: block;}
+        #m6:checked~div:nth-of-type(6){display: block;}
+        #m7:checked~div:nth-of-type(7){display: block;}
+        #m8:checked~div:nth-of-type(8){display: block;}
+        #m9:checked~div:nth-of-type(9){display: block;}
+        #m10:checked~div:nth-of-type(10){display: block;}
+        
+    </style>       
+</head>
+<body>
+<div id="tabMenuMain">  
+    <ul>
+        <li><label for="m1">블로그</label></li>
+        <li><label for="m2">카페</label></li>
+        <li><label for="m3">지식공간</label></li>
+        <li><label for="m4">영화</label></li>
+        <li><label for="m5">뮤직</label></li>
+        <li><label for="m6">웹툰</label></li>
+        <li><label for="m7">스토리볼</label></li>
+        <li><label for="m8">브런치</label></li>
+        <li><label for="m9">게임</label></li>
+        <li><label for="m10">팁</label></li>
+    </ul>
+    <!--메뉴수 만큼 radio 생성-->
+    <input type="radio" name="menu" id="m1" checked/>
+    <input type="radio" name="menu" id="m2"/>
+    <input type="radio" name="menu" id="m3"/>
+    <input type="radio" name="menu" id="m4"/>
+    <input type="radio" name="menu" id="m5"/>
+    <input type="radio" name="menu" id="m6"/>
+    <input type="radio" name="menu" id="m7"/>
+    <input type="radio" name="menu" id="m8"/>
+    <input type="radio" name="menu" id="m9"/>
+    <input type="radio" name="menu" id="m10"/>
+    
+    <!-- 컨텐츠 -->
+    <div><img src="tab2.png"/></div>
+    <div><iframe src="tabmenu_T.html" width="600" height="520"frameborder="0" scrolling="no"></iframe>"</div>
+    <div><img src="tab4.png"/></div>
+    <div><img src="tab5.png"/></div>
+    <div><img src="tab6.png"/></div>
+    <div><img src="tab7.png"/></div>
+    <div><img src="tab8.png"/></div>
+    <div><img src="tab9.png"/></div>
+    <div><img src="tab10.png"/></div>
+    <div><img src="tab11.png"/></div>
+    
+</div>
+</body>
+</html>

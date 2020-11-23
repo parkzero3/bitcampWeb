@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+    https://github.com/alaingoga
+
+jquery-accordion-image-menu
+Jquery accordion image menu plugin
+
+1.arcodionImageMenu.css
+2.jquery
+3.jquery-ui.min.js
+4.jquery.arcodionImageMenu.js
+
+-->
+<link rel="stylesheet" href="plugin/accordionImageMenu.css" type="text/css"/>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="plugin/jquery.accordionImageMenu.js"></script> 
+
+    <script>
+        $(function(){
+            $("#accordion").AccordionImageMenu({
+                position:'horizontal'// 아코디언의 표기를 가로방향 'horizontal'(기본세팅), 세로방향 'vertical'
+               ,openItem: 0 // index 를 기준으로 최초 확장하여 표시할객체지정
+               ,openDim: 300 //확장된 객체의 폭 또는 높이 (단위표시없음)
+               ,closeDim: 100 // 닫혀있는 객체의 폭 또는 높이
+                //width , height 
+                //, width : 1200 , // vertical 일때만 사용가능
+                ,height : 500 //horizontal 일때만 사용가능
+                ,duration : 3000 // 전환속도 지정
+                ,effect : 'easeOutBounce' // 전환움직임 모양
+                ,border : 5 //객체와 객체사이 보더 적용
+                ,color:'pink'
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- ul 태그에 아코디언 적용할 컨텐츠 생성 -->
+<ul id="accordion">
+    <li> <a href="#"> <img src ="../img/01.jpg"/></a></li>
+    <li> <a href="#"> <img src ="../img/02.jpg"/></a></li>
+    <li> <a href="#"> <img src ="../img/03.jpg"/></a></li>
+    <li> <a href="#"> <img src ="../img/04.jpg"/></a></li>
+    <li> <a href="#"> <img src ="../img/05.jpg"/></a></li>
+    <li> <a href="#"> <img src ="../img/06.jpg"/></a></li>
+</ul>    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout : 재귀호출</title>
+    <style>
+        #view{font-size:30px;}
+    </style>
+    <script>
+        var n=0;
+        function timeoutTest(){
+            document.getElementById("view").innerHTML= ++n;
+            //        (호출할 함수    ,밀리초)
+            var time = setTimeout("timeoutTest()",1000);
+            if(n>10){
+               clearTimeout(time);
+             }
+        }
+    </script>
+</head>
+<body onload="timeoutTest();">
+<div id="view"></div>
+</body>
+</html>

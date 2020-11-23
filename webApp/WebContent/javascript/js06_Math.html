@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+    function setMathTest(){
+        var num = 253.654;
+        var r="";
+        
+        r += "Math.PI=" + Math.PI+ "</br>";//파이 값
+        r += "Math.pow=" + Math.pow(5,3) +"</br>"; // 5의 3승 구하는법
+        r += "Math.round="+ Math.round(num) +"</br>"; //반올림
+        r += "Math.ceil ="+ Math.ceil(num) +"</br>"; // 올림
+        r += "Math.floor ="+ Math.floor(num) +"</br>"; // 버림
+        r += "Math.max=" + Math.max(54,12,36,14,66) +"</br>"; // 큰값구하기
+        r += "Math.min=" + Math.min(46,12,65,7,811,6,3) +"</br>";
+        r += "Math.random=" + Math.random() + "</br>" ; // 난수 구하기
+        r += "Math.sqrt=" + Math.sqrt(10)+"</br>" ; //루트 구하기
+        r += "Math.abs=" + Math.abs(-43,43); //절대값 구하기
+        
+        document.getElementById("result").innerHTML = r;
+    }
+        
+    </script>
+</head>
+<body  onload="setMathTest();"> <!-- 바디가 로딩을 다 끝내고 실행하는방법-->
+    <div id="result">
+    
+    </div>
+</body>
+</html>

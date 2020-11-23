@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>   
+</head>
+<body>
+    <div class="container">
+        <h1>Collapse 예</h1>
+        <!-- 버튼을 클릭하면 이미지가 접혔다 펼쳐지는 기능
+            .collapse : 접혔다,펼쳐지는 기능이 있고 처음에는 접힌상태
+            .show : 처음 실행시 펼쳐진상태
+            
+            data-target="#id" 클릭시 해당하는 아이디가 기능 작동 부여
+        -->
+        <button class="btn btn-info" data-target="#view1" data-toggle="collapse">클릭하세요</button>
+        <div id="view1" class="collapse show">
+            <img src="../img/01.jpg"/>
+        </div>
+        
+        <hr/>
+        
+        <button class="btn btn-warning" data-target="#view2" data-toggle="collapse"> 클릭하세요 </button>
+        <div id="view2" class="collapse">
+            잉글랜드 프리미어리그(EPL) 등 유럽 이적 시장이 5일 밤 끝났다. 영국은 오후 11시, 유럽은 자정이었다. 김민재의 이름은 없었다. 베이징 궈안에 잔류했다.
+            김민재의 이적 여부는 여름 내내 핫이슈였다. 7월 14일 처음 이야기가 나왔다. 토트넘과 베이징의 협상이 80~90% 진행됐다고 했다. 그 후 무수한 이야기들이 유튜브에서, 기사로 흘러나왔다. 그리고 2달여가 지났다. 결론은 결렬, 김민재의 베이징 잔류였다. 그동안 무슨 일이 있었던 걸까.
+        </div>
+        <hr/>
+        
+        <h1>Accordion 예</h1>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" data-target="#accordion1" data-toggle="collapse" data-parent="#accordion1">아코디언 적용예1</div>
+                <div class="collapse" id="accordion1">
+                [스포티비뉴스=김건일 기자] 손흥민(28, 토트넘)과 함께 프리미어리그 득점 선두를 달리고 있는 도미닉 칼버트 르윈(23, 에버턴)을 향해 팀 동료 히샬리송은 크리스티아누 호날두가 떠오른다고 극찬했다.
+                히샬리송은 국제축구연맹(FIFA) 공식 홈페이지와 인터뷰에서 "칼버트 르윈의 기량 발전은 정말 놀랍다. 완벽한 스트라이커로 변신했다. 내가 여기 처음 왔을 때와 전혀 다르다"고 말했다.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" data-target="#accordion2" data-toggle="collapse" data-parent="#accordion2"> 아코디언 적용예2</div>
+                <div id="accordion2" class="collapse">
+                    스몰링 이적에서 한 가지 주목할 포인트는 로마의 영입 시각이다. 이탈리아 이적 시장은 한국시각 기준으로 6일 새벽 3시에 막을 내렸다. 그러나 새벽 3시까지 스몰링 오피셜이 뜨지 않았다. 맨유와 로마의 합의설은 전해졌지만, 가장 중요한 공식 발표는 새벽 3시 이후였다.
+                </div>
+            </div>
+            <div class="card">1</div>
+        </div>
+    </div>
+    
+</body>
+</html>

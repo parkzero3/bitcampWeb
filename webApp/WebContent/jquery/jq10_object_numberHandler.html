@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>수치 조작 객체</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+       //스타일시트 
+        $('div:first').css("border","1px solid red");
+        $('div:gt(0)').css({width:"300px",height:"1000px",backgroundColor:"lightblue",
+                           border:"1px solid gray"});
+        $('div:nth-child(3)').css({position:"absolute",backgroundColor:"pink",top:"100px",
+                                  margin:"50px",padding:"50px",right:"100px"})
+        
+        //수치조작 객체
+        //html(): 원래 내용을 지우고 새로운 내용으로 설정
+        $('div:eq(1)').html("<b>AAAAAAAAA</b>");
+        
+        //append(): 기존 있는 내용을 유지하고 추가하기
+        $('div:eq(1)').append("<br/><i>BBBBBBBBBBBB</i>")
+        
+        //div 박스의 폭과 높이를 구한다.
+        var w = $('div').eq(1).width(); //두번째 div 폭
+        var h = $('div').eq(1).height();//두번째 div 높이
+        
+        $('div:eq(1)').append("<br/>width="+w+",height="+h);
+        
+        
+//        innerWidth() , innerHeight() -> padding을 포함한 폭과높이를 구함
+//        outerWidth() , outerHeight() -> border와 padding을 포함한 폭과높이를 구함
+        
+        var innerW =$('div:eq(2)').innerWidth();
+        var innerH =$('div:eq(2)').innerHeight();
+        var outherW =$('div:eq(2)').outerWidth(); 
+        var outherH =$('div:eq(2)').outerHeight(); 
+        
+        $('div:eq(2)').text("innerWidth="+innerW+",innerHeight"+innerH);
+        $('div:eq(2)').append("<br/>outerWidth="+outherW+",outherHeigth"+outherH);
+        
+        // append(): 선택자.append(내용);
+        // appendTo(): 추가할내용이 먼저들어감 <내용.appendTo(선택자)>
+        
+        //세번째 div 폭과 높이
+        
+        $('div:eq(2)').append("<br>width="+$('div').eq(2).width()+",height="+$('div').eq(2).height());
+        
+        var w1 = $('div').eq(2).width();
+        var h1 = $('div').eq(2).height();
+        
+//        $("<br/>w1="+w1+",h1="+h1).appendTo("div:eq(2)");
+        //컨텐츠 (내용)은 태그로 묶여있어야 한다.
+        var txt= "<br/><b>w1="+w1+",h1="+h1+"</b>";
+        $(txt).appendTo('div:eq(2)');
+        
+        var pLeft = $("div").eq(2).position().left;
+        var pTop = $("div").eq(2).position().top;
+        
+        $('div:eq(2)').append("<br/>position().left="+pLeft);
+        $('div:eq(2)').append("<br/>position().Top="+pTop);
+        
+        //offset() ->left , top의 좌표구하기 (margin 포함하여 좌표를 구함)
+        
+        var offLeft =$('div:eq(2)').offset().left;
+        var offTop =$('div:eq(2)').offset().top;
+        
+        $("<br/><span>offset().Left="+offLeft+", offset().top="+offTop+"</span>").appendTo("div:eq(2)");
+        
+        //scrollLeft(),scrollTop() : 스크롤바의 위치를 이동하거나 현재 스크롤바의 위치를 알아낼때
+        
+        $(window).scrollTop(200); //탑 스크롤을 200픽셀로 이동시키기
+        
+        $('div:first').append("<br/>현재 스크롤 위치"+$(window).scrollTop());
+    });
+</script>
+</head>
+<body>
+<div>수치 조작 객체</div>
+<div><h2>12345</h2></div>
+<div></div>
+</body>
+</html>

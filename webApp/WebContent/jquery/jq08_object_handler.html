@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체조작1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       // html() : 특정객체에 html 태그를 추가 -->innerHTML
+        var tag = "<a href='https://www.daum.net'>다음</a>뉴욕 양키스전에 류현진의 선발 등판을 예고";
+        $("#daum").html(tag);
+        //선택자 정보를 얻어오기
+        console.log($("#daum").html());
+        
+        // text() : 특정객체에 문자로 추가
+        var txt = "뉴욕 양키스전에 류현진의 선발 등판을 예고";
+        $("h2").children('a').text(txt);
+        console.log($("h2").children('a').text());
+        
+        $("#result").css("background-color","lightblue");
+        
+        var tagTxt = "뉴욕 양키스전에 <b>류현진</b>의 <i>선발 등판</i>을 예고";
+        // $("#result").text(tagTxt); //태그 적용안됨
+        $("#result").html(tagTxt);
+        
+        //h2 > a href 속성의 값을 설정 ->https://www.nate.com
+                
+        $("h2>a").attr("href","https://www.nate.com");
+        // $("h2").children('a').attr("href","https://www.nate.com");
+        
+        //속성 지우기
+        $('a').removeAttr("href");
+        $("h1").removeAttr("id");
+    });
+    </script>
+</head>
+<body>
+<h1 id="daum">객체조작1</h1>
+<h2><a href="">객체조작2</a></h2>
+<div id="result"></div>    
+</body>
+</html>

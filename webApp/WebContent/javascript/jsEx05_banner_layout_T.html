@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #top1,#top2,#content{
+            width: 1000px;
+            margin: 0px auto;
+            
+        }
+        #top1{
+            height: 100px;
+            background-color: lightblue;
+            
+        }
+        #top2{
+            height: 100px;
+            background-color: pink;
+            text-align: center;
+            line-height: 100px;
+        }
+        #top2>input{
+            font-size: 1.5em;
+            width: 500px;
+            
+        }
+        #bar{
+            height: 3px;
+            background-color: blue;
+            position: relative;
+            z-index: 10;
+        }
+        #content{
+            position: relative;
+        }
+        #content>img{
+            width: 100%;
+        }
+        /*배너*/
+        #leftBanner{
+            position: absolute;
+            left: -100px;
+            top: 0px;
+            width: 100px;
+            height: 200px;
+            background-color: yellow;
+        }
+        #rightBanner{
+            position: absolute;
+            left: 1000px;
+            top: 0px;
+            width: 100px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        function bannerMove(){
+            // console.log(window.scrollY); //스크롤 상하 사이즈 확인
+            // window.scrollY -> 스크롤바의 top 픽셀을 구한다.
+            var top = window.scrollY;
+            // display 값이 none 일때 계산
+            var header = 200;
+            if(document.getElementById("top1").style.display=="none"){
+                header=100;
+               }
+            if(top>header){ 
+                var y = top-header+"px";
+                document.getElementById("bar").style.top = y;//bar 의 좌표셋팅
+                document.getElementById("leftBanner").style.top= y;
+                document.getElementById("rightBanner").style.top= y;
+               }else{
+                   document.getElementById("bar").style.top="0px";
+                   document.getElementById("leftBanner").style.top="0px";
+                   document.getElementById("rightBanner").style.top="0px";
+                   
+               }
+            
+        }
+        // 글자 하나씩 나오기
+        var str ="박땅콩 바보 멍청이 메롱메롱";
+        //var cutCount = 1;
+        var cutCount = 0;
+        function textShow(){
+            //document.getElementById("txt").placeholder = str.slice(0,cutCount++);
+            document.getElementById("txt").placeholder = str.slice(cutCount++,str.length);
+            if(str.length<cutCount){
+                cutCount =0;
+               }
+        }
+    </script>
+</head>
+<body onscroll="bannerMove()" onload = "setInterval('textShow()',200)">
+<div id="top1" onclick="this.style.display='none'"></div>
+<div id="top2">
+    <input type="text" id="txt"/>
+    </div>
+<div id="bar"></div>
+<div id="content">
+    <img src="../img/01.jpg"/>
+    <img src="../img/02.jpg"/>
+    <img src="../img/03.jpg"/>
+    <!--배너 -->
+    <div id="leftBanner"></div>
+    <div id="rightBanner"></div>
+    </div>
+</body>
+</html>

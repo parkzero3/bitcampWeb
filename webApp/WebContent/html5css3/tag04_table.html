@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 테이블 만들기
+	table 태그 : 표의 범위
+	tr 태그 : 줄을 생성
+	td 태그 : 칸을 생성 
+	th 태그 : title 로 설정하고 싶은 칸은 생성한다.(진하게 가운데정렬 됨)
+	caption 태그 : 표의 상단에 제목을 표시
+	colgroup 태그 : 열 단위로 적용 할 수 있다.
+	
+	thead 
+	tbody
+	tfoot
+	 
+	속성
+	width :  px , % 
+	height : px 
+	cellspacing ,cellpadding , background , bgcolor.....
+ -->
+ 
+ <table border="1" width = "800" >
+ 	<caption style="font-size:25px; color:red"><b>표의제목(시간표)</b></caption>
+ 	<colgroup>
+ 		<col span="2" style="background-image:url(../img/03.jpg)"/>
+ 		<col style = "background:#dddddd"/>
+ 	</colgroup>
+ 	<!-- 첫번째 줄 -->
+ 	<thead>
+ 	<tr >
+ 		<!-- 칸 생성 -->
+ 		<th width ="300">첫번째칸</th>
+ 		<td><img src="../img/04.jpg" width="100"/><br/>두번째칸</td>
+ 		<th width ="300">세번째칸</th>
+ 	</tr>
+ 	</thead>
+ 	<tbody>
+ 	<tr height ="300" >
+ 		<!-- 두번째 줄  span태그 : 범위지정 -->
+ 		<td>AAAAA</td>
+ 		<td style ="background:pink"><span style="font-weight:bold">BBB</span>BB</td>
+ 		<td>CCCCC<br/>
+ 			<table border ="1" width ="100%">
+ 				<tr>
+ 					<td>1111</td>
+ 					<td>2222</td>
+ 				</tr>
+ 				<tr>
+ 					<td>33333</td>
+ 					<td>44444</td>
+ 				</tr>
+ 			</table>
+ 		</td>
+ 	</tr>
+ 	</tbody>
+ </table>
+</body>
+</html>

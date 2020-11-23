@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://gist.github.com/coolniikou/665255
+	
+	1.jquery
+	2.innerfade.js
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="plugin/jquery.innerfade.js"></script>
+<style type="text/css">
+	ul,li{
+		list-style-type:none;
+		margin: 0px;
+		padding:0px;
+	}
+	#imgInner img{
+		width:500px;
+		height:400px;
+	}
+	#imgInner{
+		width:500px;
+		height:400px;
+	}
+	div{
+		height:400px;
+	}
+	div:nth-child(2){
+		width:500px;
+		border:2px solid gray;
+		font-size:1.5em; 
+	}
+	#textInner li{
+		background-color: pink;
+		height: 400px;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		//이미지에 innerFade 적용하기
+		//
+		$("#imgInner").innerfade({
+			animationtype:'slide',		//"slide","fade",기본:"fade"
+			speed:'slow',				//'slow','fast','normal','밀리초'
+			timeout:5000,				//쇼대기시간
+			type:'random'				//'random'(두번째부터 랜덤),'sequence(기본)','random_start'(시작할 때 랜덤)
+		});
+		
+		//텍스트에 innerfade 적용하기
+		$("#textInner").innerfade({
+			animationtype:'slide',
+			speed:1000,
+			type:'random_start'
+		});
+		
+		
+	});
+
+</script>
+</head>
+<body>
+<div>
+	<ul id="imgInner">
+		<li><a href="https://www.nate.com"><img src="../img/147.jpg"></a></li>
+		<li><a href="https://www.naver.com"><img src="../img/lion.jpg"></a></li>
+		<li><a href="https://www.daum.net"><img src="../img/good.png"></a></li>
+		<li><a href="../index.html"><img src="../img/hello.png"></a></li>
+		<li><a href="https://www.gmarket.co.kr"><img src="../img/bear.png"></a></li>
+		<li><a href="#"><img src="../img/600.jpg"></a></li>
+		<li><a href="#"><img src="../img/peach.png"></a></li>
+		<li><a href="#"><img src="../img/lion.png"></a></li>
+	</ul>
+</div>
+<div>
+	<ul id="textInner">
+	<li>
+	동부컨퍼런스 5번 시드 마이애미가 서부컨퍼런스 1번 시드 LA 레이커스와의 NBA 2020년 파이널 맞대결 시리즈 3차전에서 11점차 완승을 연출했다.<br/>
+	후안 마뉴엘 마르케즈가 매니 파퀴아오 상대로 날렸던 KO 펀치가 이런 기분이었을까? 간판스타 지미 버틀러가 NBA 역사상 최초로 40득점, 야투 성공률 70.0% 이상 동반 트리플-더블 퍼포먼스를 선보였다.<br/> 
+	'One Shot at Glory.' 언더독(underdog) 평가로 점철된 본인 농구 커리어 전체를 투영시킨 일생일대의 한 방이었다. <br/>
+	특히 절묘한 패스 게임으로 4쿼터 중반 승부처 코트를 접수했던 장면은 오늘 경기 최고 하이라이트 필름이다.<br/>
+	</li>
+	<li>
+	NBA 2020년 PO 파이널 일정(한국 기준)<br/>
+	1차전 : LAL 18점차 승리(시리즈 전적 LAL 1승 리드)<br/>
+	2차전 : LAL 10점차 승리(시리즈 전적 LAL 2승 리드)<br/>
+	3차전 : MIA 11점차 승리(시리즈 전적 LAL 2승 1패 리드)<br/>
+	4차전 : 10월 7일 수요일 오전 10시 10분<br/>
+	5차전 : 10월 10일 토요일 오전 10시 10분<br/>
+	*서부컨퍼런스 1번 시드 vs 동부컨퍼런스 5번 시드 마이애미. 6~7차전 일정은 필요할 경우 추후 편성된다.<br/>
+	</li>
+	<li>
+	마이애미가 레이커스와의 플레이오프 파이널 맞대결 시리즈에서 연패 후 첫 승리를 수확했다. 대반격의 서막을 알렸다는 평가. 시리즈 첫 2경기 누적 득실점 마진은 -28점에 달했다.<br/> 
+	더욱 놀라운 사실은 핵심 자원들인 올스타 빅맨 뱀 아데바요(어깨), 백코트 에이스 고란 드라기치(발바닥) 부상 결장 상황에서 탑 독(top dog) 레이커스를 무찔렀다는 점이다.<br/>
+	 코트 위의 고독한 언더독(underdog) 지미 버틀러를 주목하자. NBA 역사상 세 번째로 파이널 단일 경기 40득점 이상 동반 트리플-더블을 작성했다. <br/>
+	 출전시간 과부하, 상대 수비 집중 견제, 본인 발목&무릎 통증 악재를 모두 이겨냈던 퍼포먼스다. 거함 레이커스에게 날린 혼신의 일격이자, 본인 농구 커리어 전체를 투영시킨 일생일대의 한 방이었다. 
+	후안 마뉴엘 마르케즈가 프로복싱 역사상 최고 선수 중 하나인 매니 파퀴아오 상대로 날렸던 KO 펀치처럼 말이다.
+	</li>
+	<li>
+	마이애미의 파이널 시리즈 첫 승리 원동력은 크게 두 가지다. 우선 수비 코트 경쟁력이 이전 경기들과 비교해 몰라보게 좋아졌다. <br/>
+	실제로 1~2차전 평균 120.0실점, 상대 림 근처 야투 성공률 66.1% 허용, 100번의 수비 기회에서 실점 기대치를 의미하는 디펜시브 레이팅(DRtg) 126.3 열악한 수치가 오늘 밤에는 104실점, 림 근처 야투 성공률 55.2% 허용, DRtg 104.0까지 개선되었다.<br/> 
+	주목할 부문은 에릭 스포엘스트라 감독 이하 선수단이 지역 수비 활용 빈도를 크게 낮췄다는 점이다. 대신 강한 더블팀과 트랩이 동반된 압박 수비로 *¹레이커스 예봉을 꺾었다. <br/>
+	특히 상대 실책 유발 능력이 무척 탁월했다. 
+	레이커스의 2차전 32어시스트/9실책, 어시스트&실책 교환비(AST/TO) 3.56개, 실책 발생 점유율(TOV%) 9.8%, 실책 기반 8실점 안정적인 패스 게임 생산력이 3차전에서 23어시스트/20실책, AST/TO 1.15개, TOV% 20.0%, 실책 기반 21실점으로 추락한 이유다. <br/>
+	에너지 레벨 경쟁에서 밀리지 않았던 장면도 눈에 띈다. *²적재적소 파울과 성실한 클로즈아웃(close out) 기동에 힘입어 웬만해서는 림 근처 또는 중거리 지역 오픈 슈팅 기회를 허용하지 않았다. <br/>
+	벼랑 끌에 내몰린 마이애미 선수단이 발휘했던 투지를 엿볼 수 있다.<br/>
+	</li>
+	</ul>
+</div>
+</body>
+</html>

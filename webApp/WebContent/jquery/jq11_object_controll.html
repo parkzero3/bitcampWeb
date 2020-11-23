@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        img{width: 100px;height: 100px}
+        ul,li{margin: 10px;list-style-type: none; border: 1px solid gray; float: left; padding: 5px;}
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       //append(),appendTo(),html()
+        //before() : 선택자 이전의 객체추가
+        $('#img').before("<li><img src='../img/02.jpg'/></li>'");
+        //insertBefore() : 선택자 이전에 추가 -> 내용.insertBefore(선택자)       
+        $('<li>insertBefore</li>').insertBefore('#img');
+        
+        //after(): 선택자 다음에 객체추가
+        $('#img').after("<li id='copy'><img src='../img/03.jpg'/></li>'");
+        //insertAfter() : 선택자 다음에 추가 -> 내용.insertAfter(선택자)
+        $('<li>insertAfter</li>').insertAfter('#img');
+        
+        // prepend() : 선택자의 하위 제일 앞에 객체 추가
+        $('ul').prepend("<li><img src='../img/06.jpg'/></li>");
+        // prependTo() : 선택자 하위 제일앞에 객체추가 -> 내용.prependTo(선택자)
+        $('<li>prependTo</li>').prependTo('ul');
+        
+        // clone(): 선택자를 복제 -- 1회만 사용가능 (복,붙 1회) 재사용시 다시복사
+        var copy =$('#copy').clone();
+        console.log(copy);
+        //복제한 copy를 현재 페이지에 추가할경우 아이디가 중복된다 . (아이디변경)
+        copy.attr('id','copy2');
+        //복제한 객체를 추가
+        $('ul').prepend(copy);
+        
+        //empty():선택자 하위 내용'만' 지우기
+        $('li:first').empty();
+        
+        //remove(): 선택자와 내용을 '모두'지우기
+        $('li:eq(4)').remove();
+        
+        //replaceAll(): 선택자의 객체를 치환(바꾼다) - 선택자가 뒤에옴  내용.replace('선택자')
+        $("<li>ReplaceAll()->치환하기</li>").replaceAll("#copy");
+        //replaceWith(): replaceAll 과 같음 (사용 주기법만 다름 선택자 앞뒤 )
+        $('#copy2').replaceWith('<h2>ReplaceWith()</h2>');
+    });
+    </script>
+    
+</head>
+<body>
+    <ul>
+        <li id="img"><img src="../img/01.jpg"/></li>
+    </ul>
+</body>
+</html>

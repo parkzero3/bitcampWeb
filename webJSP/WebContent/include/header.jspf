@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String username = "세종대왕";
+	String addr = "서울시 마포구";
+%>
+
+<style>
+	#top{
+		height : 100px;
+		background-color:pink;
+	}
+</style>
+<div id="top">
+	Header
+</div>

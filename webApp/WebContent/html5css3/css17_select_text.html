@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*
+		텍스트 스타일
+		::first-letter --> 문단의 첫번째 문자에 스타일 적용
+		::first-line --> 첫번째 줄에 스타일 적용
+		::selection --> 선택영역에 대한 스타일 적용
+		
+	*/
+	
+	#txt::first-letter{
+		font-size:25px; color:red; font-weight:bold; background-color:#ddd;
+	}
+	#txt::first-line{
+		background-color:lightblue; font-family: 궁서체; color:yellow;
+	}
+	#txt::selection{
+		color:red; background:#000;
+	}
+	/*
+		부정선택자
+		not() : --> 선택자를 제외한 나머지에게 스타일 적용
+	*/
+	#aa>input:not([type=submit]){
+		background:green;
+	}
+</style>
+</head>
+<!-- 
+	복사금지 설정
+	oncontextmenu: 마우스 오른쪽 버튼 메뉴 제어
+	onselectstart: 선택 시작 불가능 (클릭불가)
+	
+	ondragstart : 드래그 시작 불가능
+	ondragend: : 드래그 종료 불가능
+ -->
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+<div id="aa">
+	<input type ="text" name ="a"/><br/>
+	<input type ="text" name ="a1"/><br/>
+	<input type ="password" name ="a2"/><br/>
+	<input type ="text" name ="a3"/><br/>
+	<input type ="submit" name ="a4" value ="클릭"/><br/>
+</div>
+
+<div id="txt">
+[골닷컴] 김형중 기자 = 맨체스터 유나이티드가 공식 유니폼 스폰서 아디다스를 통해 2020/21 시즌 서드 킷을 공개했다. 
+구단 역사상 처음으로 줄무늬 디자인을 시도한 것이 특징이다.
+아디다스는 8일 맨체스터 유나이티드의 서드 킷을 공개했다.
+화이트 바탕에 블랙 스트라이프가 사선으로 처리되었다. 
+구단 고유의 색상인 레드는 어깨와 엠블럼 및 스폰서 표현을 위해 사용되었다. 다소 파격적이다.
+아디다스는 이 디자인을 개발하기 위해 구단의 과거 다양한 유니폼의 요소를 조합했다고 설명했다. 
+그 결과 구단의 야망이 잘 표현된 강렬한 느낌의 디자인이 완성되었다.
+맨유는 이미 새 시즌 홈과 원정 유니폼을 발표한 바 있다. 특히 홈 유니폼은 구단의 DNA가 잘 드러나도록 표현했다는 평가다.
+
+</div>
+</body>
+</html>

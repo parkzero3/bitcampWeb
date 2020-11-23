@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+/*
+        a:link{}
+        a:visited{}
+        a:active{}
+        a:hover{}
+*/
+    </style>
+</head>
+<body bgColor="#ddd" link="red" alink="blue" vlink="green">  
+<!--                 link : 한번도 가지않았을때 alink : 누르고있을때 Vlink :방문했을때 ! 밑줄을 없애진못함 색만 변경.-->
+    <a href="js01_start.html">자바 스크립트1</a>
+    <a href="https://www.nate.com">네이트</a>
+    <hr/>
+<script>
+    document.title ="document에서 제목설정"
+    
+    document.write("document.location->"+document.location); //프로토콜,포트번호,컨텍스트,폴더,파일명
+    document.write("<br/>document.url->"+document.URL); // location 과 결과가 같음
+    document.write("<br/>document.domain->"+document.domain); // 도메인 , ip주소
+    
+    document.write("<br/>document.lastModified->"+document.lastModified); //마지막으로 수정한 날짜와 시간
+    
+    //document.bgColor="lightblue"; //백그라운드 배경색 지정
+    document.write("<br/>document.bgColor->"+document.bgColor); // 백그라운드 컬러명 읽어오기
+    document.write("<br/>docment.linkColor->"+document.linkColor+","
+                   +"alinkColor->"+ document.alinkColor+","+"vlinkColor->"+document.vlinkColor);
+  
+    //쿠키
+    //사용자 정보를 쿠키에 남겨야할때 사용 (데이터기록)
+    document.cookie ="abcd";
+    document.write("<br/>document.cookie -> "+ document.cookie);
+    
+    
+</script>
+</body>
+</html>

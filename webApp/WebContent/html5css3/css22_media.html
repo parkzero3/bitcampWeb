@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device, initial-scale=1"/>  <!--핸드폰 기기 사이즈별로 자동설정 -->
+<title>반응형 스타일</title>
+    <style>
+        ul{margin: 0; padding: 0; list-style-type: none;}
+        ul>li{
+            background-color: lightblue;
+            margin: 5px 0px 5px 0px;
+            padding: 3px;
+            border: 1px solid #ddd;
+            width: 100%;
+            float: left;
+        }
+        /* 반응형 스타일 지정*/
+        /*미디어종류: all , screen , print , tv , projection ...*/
+        @media all and (min-width:320px) and (max-width:600px){
+            ul>li{
+                background-color: #ddd;
+                font-family: 궁서체;
+            }
+            ul>li>img{
+                width:100%;
+                display: none;
+            }
+        }
+        @media all and (min-width:601px) and (max-width:800px){
+            ul>li{
+                background-color: pink;
+            }
+        }
+        @media all and (min-width:801px){
+            ul>li{
+                background-color: skyblue;
+                width: 48%;
+                height: 10vh;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>새 골키퍼를 영입한다는데, 세계에서 가장 높은 몸값을 자랑하는 케파 아리사발라가는 어떤 반응을 보였을까.</li>
+    <li>첼시가 스타드 렌의 골키퍼 에두아르 멘디와 5년 계약에 합의했다는 소식이다. 개인 합의를 마친 후 양 구단간 이적료도 2500만파운드로 책정될 전망이다. 렌쪽에서는 아직 조심스러운 반응이지만, 멘디가 더 큰 무대로의 도전에 강렬한 의지를 보이고 있다.</li>
+    <li>첼시가 멘디를 영입하는 건 주전 골키퍼 케파에 대한 불신 때문이다. 프랭크 램파드 감독 부임 이후 케파 경기력에 대한 의문은 나날이 커져갔고, 이번 여름이적 시장에서 어떻게든 골키퍼 보강을 하려는 첼시였다.</li>
+    <li>당초 아틀레티코 마드리드 얀 오블락, FC바르세로나 마르크 안드레 테르 슈테겐과 같이 거물급 골키퍼 영입을 할 것이라는 얘기가 흘러나왔다. 만약 이들이 첼시에 합류할 경우, 당장 주전 수문장 자리를 따내는 것과 다름 없었다.</li>
+    <li>
+        <img src="../img/02.jpg"/>
+    </li>
+    
+</ul>
+</body>
+</html>

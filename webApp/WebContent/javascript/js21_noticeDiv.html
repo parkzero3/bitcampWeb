@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        #content{
+            width: 1000px;
+            margin: 0px auto;
+        }
+        #content>img{width: 100%;}
+        /*공지사항*/
+        #notice{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            left: 300px;
+            top: 100px;
+            border: 1px solid red;
+            background-color: white;
+        }
+        #title>div{
+            height: 40px;
+            line-height: 40px;
+            float: left;
+        }
+        #title>div:first-child{
+            width: 77%;
+            padding-left: 10px;
+            background-color: yellow;
+        }
+        #title>div:last-child{
+            width: 20%;
+            text-align:center;
+        }
+    </style>
+    <script>
+        //공지사항 닫기
+        function noticeClose(){
+            document.getElementById("notice").style.display="none";
+        }
+        
+        function noticeXY(){
+            divX = document.getElementById("notice").style.left="300px";
+            divY = document.getElementById("notice").style.top= "100px";
+        }
+        //공지사항 (Div) 이동하기
+        var divX, divY, eventX, eventY, moveX,moveY, flag=false; // div 의 x,y 좌표와 마우스down x,y 좌표를 변수지정 flag (스위치기능)
+        function noticeMoveStart(){
+//            divX = document.getElementById("notice").style.left;  //결과 : 300px
+            divX = document.getElementById("notice").offsetLeft;    //결과 : 300
+            divY = document.getElementById("notice").offsetTop;
+
+            //클릭한 위치의 x , y 좌표구하기
+            eventX = event.clientX;
+            eventY = event.clientY;
+            
+            flag = true;
+            document.onmousemove = noticeMove; // "" , () 생략
+            
+        }
+        function noticeMove(){
+            if(flag){
+            //마우스 이동한곳의 좌표
+            moveX = event.clientX;
+            moveY = event.clientY;
+            
+            //이동한 픽셀 계산하기       
+            var x = moveX - eventX;
+            document.getElementById("notice").style.left = divX+ x + "px";
+            var y = moveY - eventY;
+            document.getElementById("notice").style.top = divY+ y + "px";
+            }
+        }
+        function flagSet(){
+            flag = false;
+        }
+        document.onmouseup = flagSet;
+    </script>
+</head>
+<!-- <body onload= "noticeXY()"> -->
+<body>    
+<iframe src ="postMovie/postSlide.html" frameborder="0" width="100%" height="=120px"> </iframe>
+    <hr/>
+    <div id="content">
+    <img src="../img/01.jpg"/><br/>
+        [스포탈코리아] 조용운 기자= 유럽축구연맹(UEFA)이 2019/2020 챔피언스리그서 최고의 활약을 펼친 포지션별 최종 후보를 발표했다.
+        UEFA는 18일(이하 한국시간) 공식 홈페이지를 통해 각 포지션별로 수상 최종후보 3인을 공개했다. 지난 시즌 챔피언스리그에서 활약이 평가 기준이었으며 내달 2일 열리는 UEFA 시상식에서 포지션별로 1명씩 수상자를 발표한다.
+        골키퍼는 결승에서 우승을 놓고 맞붙었던 마누엘 노이어(바이에른 뮌헨)와 케일러 나바스(파리 생제르맹)가 선정됐고 리버풀과 16강에서 눈부신 선방을 펼쳤던 얀 오블락(아틀레티코 마드리드)도 포함됐다.
+        수비수는 우승팀 뮌헨의 집안 싸움이다. 다비드 알라바, 알폰소 데이비스, 조슈아 키미히가 모두 최종 3인에 포함되면서 기분 좋은 경쟁을 펼치게 됐다.
+    </div>
+    <!-- 공지사항 Div -->
+    <div id="notice">
+        <div id="title">
+            <div onmousedown="noticeMoveStart()">공지사항</div>
+            <div onclick="noticeClose()">Close</div>
+        </div>
+        <div id="noticeContent">
+            <img src="../img/08.jpg" width="100%"/>
+        </div>
+    </div>
+    
+</body>
+</html>

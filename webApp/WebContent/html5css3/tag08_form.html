@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 (아이디 비밀번호 등등)</title>
+</head>
+<body>
+<!-- 폼태그 : 서버로 사용자가 입력한 데이터를 가져갈수 있다.-->
+<!-- action : 폼이 submit이 발생하면 호출하는 파일명을 명시한다.
+	전송방식
+		GET 방식: 주소표시줄에 데이터가 표시되는 방식
+		POST 방식: 주소표시줄에 데이터가 표시되지 않게 하는 방식
+	파일 업로드시 form 태그 반드시 type="multipart/form-data" 
+-->
+<form method="post" action="login.jsp" type="multipart/form-data">
+	아이디&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="userid" value="abcd" size= "20" maxlength="10" placeholder="아이디or이메일"/><br/> <!--  한줄의 문자를 입력 text -->
+	비밀번호 : <input type="password" name="userpwd"size="10" /><br/>
+	파일첨부 : <input type="file" name="filename"><br/> <!--  파일업로드시  -->
+	체크박스 : <input type="checkbox" name="hobby" value="여행"/>여행<!-- name , value 필수 -->
+				<input type="checkbox" name="hobby" value="등산" checked/>등산
+				<input type="checkbox" name="hobby" value="쇼핑"/>쇼핑 <br/>
+	라디오버튼 : <input type="radio" name="gender" value= "M"/>남자<!-- name 이 같아야 라디오버튼 기능적용 -->
+				<input type="radio" name="gender" value= "F"/>여자<br/>	
+	여러줄의 텍스트 입력:<br/>
+	<textarea cols="40" rows="10" name="content">value 를 따로 생성하지않아도 됨</textarea><br/>
+	<select name="book" size="1" multiple> <!-- 리스트 처럼 3개로 설정하는법 // 다중선택하는법 -->
+		<option value="java">자바</option>
+		<option value="spring">스프링</option>
+		<option value="mybatis">마이바티스</option>
+		<option value="jsp"selected>제이에스피</option>
+		<option value="html">HTML</option>
+	</select><br/>							
+	라벨이 있는 셀렉트 :
+	<select name="schedule">
+		<optgroup label="프론트엔드">
+			<option value="html/css">html5/css3</option>
+			<option value="javascript" selected>자바스크립트</option>
+			<option value="jquery">제이쿼리</option>
+		</optgroup>	
+		<optgroup label="백엔드">
+			<option value="java">자바</option>
+			<option value="jsp" >제이에스피</option>
+			<option value="spring">스프링</option>
+		</optgroup>	
+	</select><br/>
+	<!--  -->
+	date : <input type ="date" name ="date1"/><br/>
+	datetime-local : <input type ="datetime-local" name="date2"/> <br/>
+	month : <input type ="month" name="date3"/><br/>
+	week : <input type ="week" name ="date4"/><br/>
+	color : <input type ="color" name="color" id="color"/><br/>
+	number : <input type= "number" name ="num" step ="10"/><br/>
+	range : <input type="range" name="range" id="range" min="1" max="10"/><br/>
+	
+	<input type ="submit" value="로그인"/>
+	<input type ="image" src ="../img/01.jpg"/> <!-- 이미지로 submit 역활 -->
+	<input type ="button" value="color 코드값출력" onclick="colorCode()"/>
+	<input type = "reset" value="다시쓰기"/>
+	
+</form>
+<script>
+	//javascript 영역으로 지정
+		function colorCode(){
+			alert(document.getElementById("color").value + "\n" + document.getElementById("range").value);
+		}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function change() {
+            document.getElementById("i").src = "../img/05.jpg";
+        }
+    </script>
+
+</head>
+
+<body>
+    <img src="../img/01.jpg" id="i" onclick="change()" />
+    <img src="../img/06.jpg" id="i2" onmouseover="this.src='../img/02.jpg'" onmouseout="this.src='../img/05.jpg'" />
+</body></html>

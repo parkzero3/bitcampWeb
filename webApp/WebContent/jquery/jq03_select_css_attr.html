@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           //선택자 : 태그, 아이디선택자,클래스선택자
+            //태그선택자 --> h1 태그에 글자색 스타일 추가
+            $("h1").css("color","blue");
+            //클래스 선택자 
+            $(".c1").css("border","1px solid gray");
+            $("#t1").css("background-color","lightblue");
+            
+            $("h1").css("background-image","url(../img/02.jpg)").css("color","red");
+            
+            //jquery 에서 html 속성을 사용할때 
+            $("img").attr("title","ddangkong");
+            $("img").attr("src","../img/02.jpg");
+            $("img").css("width","200px"); //이미지 사이즈조정
+            
+            $("#txt").attr("value","kamja");
+            
+            //prop : html의 속성중 속성만 존재하는경우 readonly,disaled,checked,selected 등등 (프로퍼티줄임말)
+            $("#txt").prop("readonly",true); //값이없는 속성을 사용할경우
+            
+            // if,for, switc,break,continue 등등 사용가능
+        });
+    </script>
+</head>
+<body>
+<input type="text" id="txt" /><br/>
+    <h1 class="c1">JQuery에서 클래스 선택자</h1>
+    <h1 id="t1">Jquery에서 아이디 선택자</h1>
+    <h1 class="c1">JQuery에서 클래스선택자</h1>
+    <img src="../img/01.jpg"/>
+</body>
+</html>

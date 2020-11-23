@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>탭메뉴 선생님 source</title>
+    <style>
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+        #main{
+            overflow: auto;
+            width: 600px;
+        }
+        #leftDiv,#rightDiv{
+            float: left;
+        }
+        /*왼쪽상단*/
+        #leftDiv {
+            width: 400px;
+        }
+
+        #leftDiv>ul {
+            overflow: auto
+        }
+
+        #leftDiv>ul>li {
+            float: left;
+            width: 158px;
+            height: 132px;
+            border: 1px solid #ddd;
+            margin: 0px 20px 20px 0px;
+            padding: 10px;
+            background-color: #eee;
+        }
+        .txtContent>li{
+            float: left;
+            height: 60px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;/*글자수가 범위를 초과하면 ... 으로 표시*/
+            font-family: 돋움;
+            font-size: 12px;
+        }
+        .txtContent>li:first-child{
+            color:#00ffff;
+        }
+        .txtContent>li:nth-child(2n+1){
+            width: 20px;
+            font-size: 15px;
+            
+        }
+        .txtContent>li:nth-child(2n){
+            width: 128px;
+        }
+        /*오른쪽상단*/
+        #rightDiv {
+            width: 178px;
+            height: 327px;
+            border: 1px solid #ddd;
+            margin: 0px 20px 20px 0px;
+        }
+        /* 아래쪽 */
+        #bottomDiv{
+            clear: left;
+        }
+        #bottomDiv>ul>li{
+            float: left;
+            width: 178px;
+            height: 160px;
+            border: 1px solid #ddd;
+            margin: 0px 20px 20px 0px; 
+            font-size:12px;
+            line-height: 20px;
+        }
+        img{
+            width:100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <!-- 왼쪽 상단-->
+        <div id="leftDiv">
+            <ul>
+                <li>
+                    <ul class="txtContent">
+                        <li><b>Q</b></li>
+                        <li><b>헐리우드영화에서 러시아인이 주로 악당으로</b></li>
+                        <li><b>A</b></li>
+                        <li>냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="txtContent">
+                        <li><b>Q</b></li>
+                        <li><b>'독도'이름의 유래를 알려주세요</b></li>
+                        <li><b>A</b></li>
+                        <li>독도와 관련된 명칭은 시대에 따라 문헌에 아주 다양하게 나옵니다. 조선...</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="txtContent">
+                        <li><b>Q</b></li>
+                        <li><b>매실청은 당뇨환자에게 해로운가요?</b></li>
+                        <li><b>A</b></li>
+                        <li>매실청은 설탕으로 매실을 발효시킨 식품으로 당분이 많이 함유되어 있습니다.</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="txtContent">
+                        <li><b>Q</b></li>
+                        <li><b>108배가 다이어트에 도움이 되나요?</b></li>
+                        <li><b>A</b></li>
+                        <li>108배를 하면 땀도 굉장히 많이나고 전신운동이 되기때문에 운동효...</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- 오른쪽 상단-->
+        <div id="rightDiv">
+            <img src="img/tab2_1.png" />
+        </div>
+        <!-- 아래쪽 -->
+        <div id="bottomDiv">
+            <ul>
+                <li>
+                    <img src="img/tab2_2.png"/>
+                    <B>견과류의 하루 적정 섭취량</B><br/>
+                    견과류
+                </li>
+                <li>
+                    <img src="img/tab2_3.png"/>
+                    <B>날벌레가 빛에 몰려드는 이유</B><br/>
+                    곤충
+                </li>
+                <li>
+                    <img src="img/tab2_4.png"/>
+                    <B>냉면의 유래와 역사</B><br/>
+                    음식
+                </li>
+            </ul>
+    </div>
+</body>
+
+</html>

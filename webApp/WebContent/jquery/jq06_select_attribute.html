@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $("li").css("margin","10px");
+        //속성 선택자
+        //a 태그중 title 속성이 있는 객체를 선택
+        $("a[title]").css("background-color","yellow");
+        //a 태그중 href 속성의 값이 https://www.naver.com 같은 객체를 선택
+        $("a[href='https://www.naver.com']").css("border","2px solid red");
+        
+        //^= : 특정문자로 시작하면 선택
+        $("a[href^='https://']").css("background-color","pink");    
+        //$= : 특정문자로 끝나면 선택
+        $("a[href$='com']").css("background-color","lightblue");
+        //*= : 특정문자가 포함되면 선택
+        $("a[href*='na']").css("background-color","orange");
+    });
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="https://www.daum.net">다음</a></li>
+    <li><a href="https://www.nate.com">네이트</a></li>
+    <li><a href="https://www.naver.com">네이버</a></li>
+    <li><a href="https://www.jquery.com" title="제이쿼리 홈페이지로 이동합니다.">제이쿼리</a></li>
+    <li><a href="https://www.android.org">안드로이드</a></li>
+    <li><a href="mailto:aaaa@nate.com">메일보내기</a></li>
+    <li><a href="http://www.w3schools.com">w3schools</a></li>
+</ul>
+</body>
+</html>

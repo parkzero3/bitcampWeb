@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*자손 선택자*/
+	#mainDiv>ul{background-color:lightblue;}
+	/*후손 선택자 = 아이디 명 옆에 한칸띄어야함*/
+	#mainDiv b{background-color:green}
+	/*반응 선택자*/
+	#subDiv li:hover{
+		background-color:pink;
+	}
+	#subDiv li:active{
+		color:blue;	
+	}
+</style>
+</head>
+<body>
+<h1>자손선택자 , 후손선택자</h1>
+<div id="mainDiv">
+	<ul>
+		<li>자손,후손선택자11111</li>
+		<li>자손,후손선택자22222</li>
+		<li>자손,후손선택자33333
+			<b>후손선택자</b>
+			</li>
+		<li>자손,후손선택자44444</li>
+		<li>자손,후손선택자55555</li>	
+	</ul>
+	<h2>22222222222222222</h2>
+</div>
+<div id="subDiv">
+	<ul>
+		<li>자손,후손선택자11111</li>
+		<li>자손,후손선택자22222</li>
+		<li>자손,후손선택자33333</li>
+		<li>자손,후손선택자44444</li>
+		<li>자손,후손선택자55555</li>	
+	</ul>
+</div>
+</body>
+</html>

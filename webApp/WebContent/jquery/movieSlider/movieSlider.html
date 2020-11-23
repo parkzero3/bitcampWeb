@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #view{width: 800px;height: 114px;overflow: hidden;}
+        #imgList{width: 1800px;height: 114px;}
+    </style>
+    
+    <script>
+        $(function() {
+
+            for (i = 1; i < 20; i++) {
+                var tag = "<img src='movie";
+                if (i < 10) {
+                    tag += "0" + i;
+                } else {
+                    tag += i;
+                }
+                tag += ".png'/>";
+                $('#imgList').append(tag);
+            }
+            setInterval('movieMove()', 1000);
+        });
+        //imgList의 첫번째 이미지를 마지막위치로 이동시키는기능
+        function movieMove() {
+            //내용          선택자
+            $('#imgList>img').first().appendTo('#imgList');
+        }
+    </script>
+</head>
+<body>
+<div id="view">
+    <div id="imgList"></div>
+</div>
+</body>
+</html>

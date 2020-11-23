@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+    https://ckeditor.com/ckeditor-4/download/
+    full패키지 다운 압축 푼 후 폴더 자체를 복사해서 넣기
+    
+    링크순서
+    1.jquery.min.js
+    2. ckeditor.js 링크 
+    
+-->
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>   
+    
+    <script>
+        $(function(){
+            //textarea 에 ckeditor 편집기 적용시키기
+           //ID가 아닌 네임 속성값을 적용함
+            CKEDITOR.replace("intro"); 
+            
+            //유효성 검사 (데이터 존재여부 먼저 확인)
+            $("#frm").submit(function(){
+                //이름 입력유무 확인
+                if($("#username").val()==""){
+                    alert("이름을 입력하세요");
+                    return false;
+                }
+                //자기소개 입력유무 확인
+                //Ckeditor의 value 얻어오는 방법
+                var data = CKEDITOR.instances.intro.getData();
+                alert(data);
+                if(data ==""){
+                   alert("자기소개를 입력하세요");
+                    return false;
+                   }
+                return true;
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="editorTest">
+    <form method="post" name="frm" id="frm" action="aaa.jsp">
+        이름: <input type="text" name="username" id="username"/><br/>
+        자기소개: 
+        <textarea name="intro" id="intro"></textarea><br/>
+        <input type="submit" value="전송"/>
+    </form>
+</div>
+</body>
+</html>

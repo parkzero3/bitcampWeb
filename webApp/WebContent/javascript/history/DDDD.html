@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    
+    <style>
+        body{background-color: #ddd;}
+    </style>
+    <script>
+   /*   history.back() : 이전페이지로 이동
+        history.forward() : 다음페이지로 이동
+        history.go(n) : 양수는 다음페이지로 음수는 이전페이지로 이동
+        history.length : history 갯수
+    */
+    </script>
+</head>
+<body>
+<h1>
+    <script>
+    document.write("history 갯수: "+history.length);
+    </script>
+</h1>
+    <a href="AAAA.html">AAAAA</a><br/>
+    <a href="BBBB.html">BBBBB</a><br/>
+    <a href="CCCC.html">CCCCC</a><hr/>
+    <input type="button" value="전전 페이지" onclick="history.go(-2)"/>
+    <input type="button" value="이전 페이지" onclick="history.back()"/>
+    <input type="button" value="다음 페이지" onclick="history.forward()"/>
+    <input type="button" value="다다음 페이지" onclick="history.go(2)"/>
+</body>
+</html>

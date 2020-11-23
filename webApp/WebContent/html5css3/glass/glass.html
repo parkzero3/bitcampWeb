@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{width :100%; height:30px;}
+	#d1{background-color:pink;
+		height : 40px;
+		visibility:visible;
+		z-index:1;
+	}
+	#d2{background-color:lightblue;
+		height : 23px;
+		visibility:visible;
+		z-index:2;
+	}
+	#d3{background-color:white;
+		visibility:visible;
+		z-index:3;
+	}
+	#img1{position:absolute;
+		left:0px; top:9px;
+		z-index:10;
+	}
+	#img2{position:absolute;z-index:7;
+		left:340px; top:70px;
+		}
+	#img3{position:absolute;z-index:8;
+		left:490px; top:120px;
+		}
+	#img4{position:absolute;z-index:9;
+		left:400px; top:180px;
+		}
+</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="img1"><img src ="img/title_layer.gif"/></div>
+	<div>
+	<img id="img2" src="img/glass1.gif" />
+	<img id="img3" src="img/glass2.gif"/>
+	<img id="img4" src="img/glass3.gif"/>
+	</div>
+</body>
+</html>

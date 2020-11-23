@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        div{border: 2px solid red; margin: 10px;}
+    </style>
+    
+    <script>
+    $(function(){
+        //객체 감싸기
+        //wrap() : 선택자를 특정 태그로 '각각' 감싼다.
+        $('.c1').wrap('<h1/>');
+        
+        //wrapAll() : 선택자를 특정태그로 '전체'를 감싼다  
+        $('.c2').wrapAll('<div/>');
+        
+        //wrapInner() : 선택자의 하위에 특정태그를 추가한다.
+        $('.c2').wrapInner("<i/>");
+        
+        //unwrap() : 선택자의 부모태그에 적용 , 부모객체를 제거한다.
+        $('.c2').unwrap();
+        
+        //eact() : 반복문처럼 구현됨. 여러개의 객체를 순차적으로 조작함
+        //                          0,1,2,3   li,li,li 
+        $('#list>li').each(function(idx,        obj){
+            $(obj).html('<b>each를 이용한 객체조작 (idx= '+idx+')<b/>');    
+        });
+        
+        // map(): 배열을 반복 처리를한다.
+        var optList =['축구','야구','농구','배구','족구','수구','직구'];
+        var tag ='<select name="hobby">';
+        //                   축구,야구        0,1,2,3
+        optList.map(function(value,         idx){
+           tag += "<option value='"+value+"'>"+value+idx+"</option>" 
+        });
+        tag += "</select>";
+        $('body').prepend(tag);
+        
+    });
+        
+        
+    </script>
+</head>
+<body>
+    
+<div class="c1">객체조작 메소드1</div>
+<div class="c1">객체조작 메소드2</div>
+<div class="c2">객체조작 메소드3</div>
+<div class="c2">객체조작 메소드4</div> 
+    <ul id="list">
+    <li>객체조작 메소드 li 1</li>
+    <li>객체조작 메소드 li 2</li>
+    <li>객체조작 메소드 li 3</li>
+    <li>객체조작 메소드 li 4</li>
+    <li>객체조작 메소드 li 5</li>
+    <li>객체조작 메소드 li 6</li>
+    <li>객체조작 메소드 li 7</li>
+    </ul>
+</body>
+</html>

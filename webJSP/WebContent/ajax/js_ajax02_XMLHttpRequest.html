@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script> 
+<script>
+	function ajaxStart(){
+		var http = new XMLHttpRequest();
+		
+		http.onreadystatechange = function(){
+			// this.responseText
+			if(this.readyState==4 && this.status==200){
+				document.getElementById("result").innerHTML = this.responseText;
+			}
+		}
+		http.open("GET","test.jsp?username=홍길동&tel=010-1234-1234",true);
+		http.send();
+	}
+	
+	function ajaxStartPost(){
+		var http = new XMLHttpRequest();
+		
+		http.onreadystatechange = function(){
+			if(this.readyState==4 && this.status==200){
+				document.getElementById("memo").innerHTML = this.responseText;
+			}
+		}
+		http.open("POST","test.jsp",true);
+		//포스트방식으로 서버에 접속 시 header 를 설정해줘야 한다.
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded");	
+		//post 방식일 경우 데이터 send 함수에 명시한다.
+		http.send("username=세종대왕&tel=010-2222-2222");
+	}
+</script>  
+</head>
+<body>
+<div class="container">
+	<h1>Ajax를 이용하여 비동기식으로 test.jsp 정보 가져오기(GET 방식)</h1>
+	<button onclick="ajaxStart()">클릭 (GET) </button>
+	<div id="result"></div>
+	<hr/>
+	<h1>Ajax를 이용하여 비동기식 test.jsp 정보 가져오기(POST 방식)</h1>
+	<button onclick="ajaxStartPost()">클릭 (POST)</button>
+	<div id="memo"></div>
+</div>
+</body>
+</html>

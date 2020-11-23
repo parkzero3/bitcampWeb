@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #content{border: 1px solid black;}
+        input{width: 70px; font-size: 1em}
+    </style>
+    <script>
+    $(function(){
+/*        $("#content").css("font-size","15pt");
+        console.log($("#content").css("font-size"));
+*/
+        //1em = 16px; 현재 폰트사이즈
+        
+        $("input").click(function(){
+            var idx = $("input").index(this); // 아이디 지정을 하지않고 인덱스로 구하여 아이디역할대체
+            var size = parseInt($("#content").css("font-size"));//현재글자크기를 정수로 전환
+            
+            if(idx==0){
+                size = size-1;
+               }else if(idx ==1){
+                size = 16;
+               }else if(idx ==2){
+                size = size+1;       
+               }
+            $("#content").css("font-size",size+"px");
+        });
+    });
+    </script>
+</head>
+<body>
+<input type="button" value="-"/>
+<input type="button" value="0"/>
+<input type="button" value="+"/>
+    <div id="content">
+    손흥민은 27일(한국시간) 영국 런던의 토트넘 홋스퍼 스타디움에서 열린 뉴캐슬 유나이티드와 2020-2021 잉글랜드 프로축구 프리미어리그(EPL) 3라운드 원정에 4-2-3-1 전술의 왼쪽 날개로 선발 출전해 전반전만 소화하고 교체됐다.
+    25일 원정으로 치러진 KF스켄디야(북마케도니아)와 2020-2021 유로파리그 3차 예선에 풀타임 출전한 손흥민은 뉴캐슬을 상대로 이틀 만에 선발로 나서는 강행군을 펼쳤지만 골대를 두 차례 때리는 불운 속에 공격포인트를 작성하지 못했다.
+    이에 따라 이번 시즌 5골 2도움(정규리그 4골·유로파리그 1골 2도움)을 기록 중인 손흥민은 한국시간으로 30일 오전 3시 45분 예정된 첼시와 2020-2021 카라바오컵(리그컵) 16강전에서 시즌 6호골에 재도전한다.
+    토트넘은 전반 25분 루카스 모라의 선제골이 터졌지만 후반 추가 시간 비디오판독(VAR)에 의한 페널티킥 동점 골을 허용하며 다잡은 승리를 놓치고 1-1로 비겼다.
+
+    토트넘은 전반 3분 만에 시도한 지오반니 로셀소의 절묘한 프리킥이 골키퍼 선방에 걸렸고, 전반 8분에는 피에르-에밀 호이비에르가 투입한 프리킥을 해리 케인이 문전에서 헤딩한 게 또다시 골키퍼의 슈퍼 세이브에 막혔다.
+    </div>
+</body>
+</html>

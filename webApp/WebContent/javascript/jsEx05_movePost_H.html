@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	
+<style rel="stylesheet" type="text/css">
+    #main {
+        display: inline-flex;
+        width: 830px;
+        margin: 0px auto;
+    }
+    #content{
+        overflow: hidden;
+        height: 114px;
+        width: 800px;
+        margin: 0px auto;
+        padding: 0px 0px;
+    }    
+    #content>ul{
+        margin: 0px;
+        padding: 0px 0px;
+        width: 1640px;
+        
+    }    
+    #content>ul>li{
+        list-style: none;
+        float: left;
+    }    
+    .btn{
+        width: 30px;
+    }
+    #left{
+        float: left;
+        margin: 0px auto;
+        height: 114px;
+    }
+    #right{
+        float: right;
+        height: 114px;
+        margin: 0px auto;
+    }
+    
+
+</style>
+
+</head>
+
+<body>
+<center>
+<div id = "main">
+    <div class="btn"><button id ="left" onclick="moveLeft()">◁</button></div>
+    <div id="content"> 
+        <ul onmouseover="mouseOver()" onmouseout="mouseOut()";>
+            <li><img src="../postImg/movie01.png" /></li>
+            <li><img src="../postImg/movie02.png" /></li>
+            <li><img src="../postImg/movie03.png" /></li>
+            <li><img src="../postImg/movie04.png" /></li>
+            <li><img src="../postImg/movie05.png" /></li>
+            <li><img src="../postImg/movie06.png" /></li>
+            <li><img src="../postImg/movie07.png" /></li>
+            <li><img src="../postImg/movie08.png" /></li>
+            <li><img src="../postImg/movie09.png" /></li>
+            <li><img src="../postImg/movie10.png" /></li>
+            <li><img src="../postImg/movie11.png" /></li>
+            <li><img src="../postImg/movie12.png" /></li>
+            <li><img src="../postImg/movie13.png" /></li>
+            <li><img src="../postImg/movie14.png" /></li>
+            <li><img src="../postImg/movie15.png" /></li>
+            <li><img src="../postImg/movie16.png" /></li>
+            <li><img src="../postImg/movie17.png" /></li>
+            <li><img src="../postImg/movie18.png" /></li>
+            <li><img src="../postImg/movie19.png" /></li>
+            <li><img src="../postImg/movie20.png" /></li>   
+        </ul>
+    </div>
+     <div class="btn"><button id ="right" onclick="moveRight()">▷</button></div>
+</div>
+</center>
+</body>   
+<script type="text/javascript">
+    
+var ul=document.querySelector('ul');
+ul.style.marginLeft='0px';
+//////
+    
+var intervalmethod;    
+var boo=true;
+function move(){ 
+    if(parseInt(ul.style.marginLeft)==-820){
+        boo=false;
+    }else if(parseInt(ul.style.marginLeft)==0){
+        boo=true;
+    }
+    if(boo){
+ul.style.marginLeft=parseInt(ul.style.marginLeft)-10+'px';
+    }else{ ul.style.marginLeft=parseInt(ul.style.marginLeft)+10+'px';
+    }
+}
+    intervalmethod = setInterval("move()",200);
+
+function moveLeft() {
+    var ul=document.querySelector('ul');
+    boo=true;
+   if(parseInt(ul.style.marginLeft)>-820){
+       ul.style.marginLeft=parseInt(ul.style.marginLeft)-10+'px';
+   } 
+   
+}
+    
+ function moveRight() {
+    var ul=document.querySelector('ul');
+    boo=false;
+   if(parseInt(ul.style.marginLeft)<0){
+       ul.style.marginLeft=parseInt(ul.style.marginLeft)+10+'px';
+   } 
+     
+}  
+    function mouseOver() {
+    clearInterval(intervalmethod);
+}
+
+function mouseOut() {
+    intervalmethod = setInterval("move()",200);
+    
+}
+
+</script>
+</html>

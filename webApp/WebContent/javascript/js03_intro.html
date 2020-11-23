@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var imgTag="<img src='../img/01.jpg' id='book'/>";
+	document.write(imgTag);
+
+</script>
+</head>
+<body>
+<br/>
+<input type="text" name="username" id="username" value="홍길동"/>
+<br/>
+<div id="test" style="border: 1px solid gray"></div>
+<script>
+    document.getElementById("test").innerHTML = imgTag;
+    /*
+    자바 스크립으세 html 속성 사용하기
+        */
+    var username = document.getElementById("username")
+    // username에 이름을 변경
+    document.getElementById("username").value = "hong gil dong";
+    username.value ="gil dong";
+    username.type ="password";
+    
+    var img = document.getElementById("book");
+    img.src="../img/08.jpg";
+    
+    /*
+        자바 스크립트에서 css 사용하기
+    */
+    img.style.border = "3px solid red";
+    username.style.backgroundColor = "green";
+    img.title="풍선도움말";
+</script>
+</body>
+</html>

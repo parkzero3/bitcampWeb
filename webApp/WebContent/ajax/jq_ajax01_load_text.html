@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#startAjax").click(function(){
+                // jquery 에서 ajax 구현 - text 파일 내용 가져오기
+                $("#result").load("memo.txt");
+                
+            }); 
+        });
+    </script>
+</head>
+<body>
+<h1> Jquery에서 Ajax 구현하기 -> text </h1>
+    <div id="result">
+        <button id="startAjax">클릭하면 서버에서 비동기식으로 정보를 불러옴</button>
+    </div>
+    <img src="../img/01.jpg"/>
+</body>
+</html>

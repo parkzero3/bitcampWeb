@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    img{width: 100px; height: 100px;}
+</style>
+    <script>
+        $(function(){
+           // 마우스 클릭시 이미지 추가하기
+            var imgTag= "<img src='../img/02.jpg'/>";
+            $("img").first().on('click',function(){
+               $("#triggerTest").append(imgTag); 
+            });
+            
+            //click이벤트 자동발생 시키기
+            setInterval(function(){
+                //이벤트 발생             이벤트 종류
+                $("img").first().trigger('click');
+            },1000);
+            
+        });
+    </script>
+</head>
+<body>
+    <div id="triggerTest">
+<!-- trigger : 이벤트 자동발생-->
+        <img src="../img/01.jpg"/>
+    </div>       
+</body>
+</html>

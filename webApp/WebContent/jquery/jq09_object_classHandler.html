@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클래스 조작 객체</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .c1{border: 3px solid red; width: 200px; height: 100px;}
+        .c2{border: 3px dotted blue; width: 200px; height: 100px;}
+        .c3{border: 3px dashed green; width: 200px; height: 100px;}
+        .c4{border: 3px double lightblue; width: 200px; height: 100px;}
+    </style>
+    <script>
+    $(function(){
+        //태그에 클래스 추가
+        $('img').addClass('c1');
+        $('input[type="text"]').addClass('c2');
+        //$("img").addClass('c4');
+        
+        // removeClass():태그에 있는 클래스 지우기
+        $("#username").removeClass('c2');
+        
+        //이미지의 짝수번째에서는 c2클래스를 추가 , 홀수번째는 c3 클래스를 추가
+         //$("img:even").addClass('c3');
+         //$("img:odd").addClass('c2');
+        $('img:nth-child(2n)').addClass('c2');
+        //$('img:nth-child(2n+1)').addClass('c3');
+        
+        // toggleClass():클래스가 있으면 지우고, 없으면 추가하기
+        $('img').toggleClass('c2');
+        
+        // hasClass(): 클래스가 있는지 없는지의 유무를 구하며 true,false 로 리턴됨
+        
+        //첫번째 이미지의 클래스 존재유무 파악 후 id=username 에 결과값 확인하기
+        var cState = $('img:first').hasClass('c2');
+        $('#username').attr("value",cState);
+        $('#intro').val($('img').eq(0).hasClass('c3'));
+        
+        //html(),text(),val(),attr(),prop() 많이사용됨
+    });
+    </script>    
+</head>
+<body>
+    <div>
+    이름 :<input type="text" name="username" id="username"/><br/>
+    연락처 : <input type="text" name="tel" id="tel"/><br/>
+    <textarea id="intro"> </textarea>    
+    </div>
+    <div></div>
+    <img src="../img/01.jpg"/>
+    <img src="../img/02.jpg"/>
+    <img src="../img/03.jpg"/>
+    <img src="../img/04.jpg"/>
+</body>
+</html>

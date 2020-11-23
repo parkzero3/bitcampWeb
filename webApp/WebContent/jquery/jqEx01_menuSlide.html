@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    body{
+        margin: 0px;
+        background-image: url(../img/noise.png);
+    }
+    #content{
+        background-image: url("../img/bg1.jpg");
+        width: 1000px; height: 1200px;
+        margin: 0 auto;
+        background-repeat: no-repeat; 
+        }
+    #menu{
+        margin: 0px 120px; height: 149px;            
+        list-style-type: none;
+        padding: 0px;
+    }
+    section>img{
+        width: 100%
+    }
+    #menu a:link , #menu a:visited, #menu a:hover{
+        text-decoration: none;
+        color: #888;
+    }
+</style>
+<script>
+    $(function(){    
+        var menu = ['MENU','ABOUT','WORK','CONTECT'];
+        var menuTag = "";
+        menu.map(function(v,i){
+            menuTag += "<li><a href='#'>"+v+"</a></li>";
+        });
+        
+        $('#menu').html(menuTag); //prepend(),append(),html() 가능 
+        $('#menu>li').css({
+            width:"25%",
+            lineHeight:"149px",
+            textAlign:"center",
+            fontSize:"1.5em",
+            float: "left" ,
+            fontFamily:"고딕",
+            fontWeight: "bold",
+            backgroundImage:"url(../img/label.png)",
+            backgroundRepeat :"no-repeat",
+            backgroundPosition : "center -149px"
+            
+        });
+/*  이벤트     엔터와 리브 사용시   
+        $("#menu>li").on({
+           mouseenter:function(){
+               $(this).css("background-position","center 0px").css("transitionDuration","1s");
+           },mouseleave:function(){
+               $(this).css("background-position","center -149px")
+           } 
+        });
+        
+        이벤트 = 호버 사용시
+*/      
+        $("#menu>li").hover(function(){
+            $(this).css("background-position","center 0px").css("transitionDuration","1s");
+        },function(){
+            $(this).css("background-position","center -149px")
+        });
+        
+    });
+        
+</script>    
+    
+</head>
+<body>
+    <div id="content">
+        <ul id="menu">
+        </ul>
+        <section>
+            <img src="../img/01.jpg"/>
+        </section>
+    </div>  
+</body>
+</html>

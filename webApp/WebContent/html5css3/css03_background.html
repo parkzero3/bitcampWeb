@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:100px;height:100px}
+	/*
+	background-color : 배경색(rgbcode , 컬러명) 
+	background-image : 배경에 이미지를 설정할때 background-image:url(../img/01.jpg)
+	background-repeat : 배경이미지 반복여부 설정할때
+						repeat-x : 가로만 반복
+						repeat-y : 세로만 반복
+						no-repeat : 한번만 배경으로 표시
+	background-positoin : 백그라운드의 위치를 지정할수있다.
+						top,bottom,left,right, center(좌우기준),middle(위아래기준) , 백분율
+	background-attachment : 백그라운듸 이미지를 고정한다
+							고정 (fixed) 무빙 (scroll)
+	background-size	: 배경 이미지의 사이즈를 설정 할수있다. (w,h)		
+	*/
+	
+	body{
+	/*
+		background-color:lightblue;
+		background-image:url(../img/01.jpg);
+		background-repeat : no-repeat;
+		background-position : center top;
+		/*background-position : 20% 30%;
+		background-attachment : fixed;
+		background-size	: 100% 600px;
+		
+	*/
+		/* 속성의 그룹화 (묶어서 한번에 사용 하기) & 순서는 상관없음 */
+		background:pink url(../img/06.jpg) no-repeat center right fixed;
+ 	}
+</style>
+</head>
+<body>
+<h1>BackGround 속성 : 배경색 , 배경이미지와 관련</h1>
+<!-- 이미지 사이의 간격을 붙히려면 한줄로 
+ 	이미지 사이의 간격을 주려면 한줄씩 따로입력 하면됨		
+ -->
+<img src ="../img/05.jpg"/>
+<img src ="../img/02.jpg"/>
+<img src ="../img/03.jpg"/>
+<p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p>
+<p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p>
+<p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p><p>1234</p>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태선택자,컨텐츠선택자</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       //상태 선택자
+        // :text -> 속성값이 text인 경우 선택한다.
+        $(":text").css("width","300px").css("height","30px");
+        // : checked -> 속성이 checked 경우 선택한다.
+        $(":checked").prop("checked",false);  //checked 해제 시키기 
+        // :selected -> 속성이 selected 경우 선택한다.
+        // $(":selected").prop("selected",false); // selected 해제시키기
+        
+        //컨텐츠 선택자
+        //contaisn() -> 특정문자가 포함된 경우 선택
+        $("p:contains('정기점검')").css("background-color","pink");
+        
+        //has() -> 선택자의 하위에 특정 태그가 포함된경우
+        $("p:has('b')").css("border","2px solid black");
+        
+        //not() -> 특정 선택자를 제외한 나머지를 선택한다.
+        $("p:not(':first')").css("background-color","black").css("color","white");
+        
+        //closest() -> 조상 선택자
+        $("p").closest('body').css("background-color","lightblue");
+        
+        //filter() -> 특정 선택자가 포함된 경우
+        $("p").filter(".c1").css("color","yellow");
+        
+        //contents() -> 특정 선택자가 다른태그에 포함된경우
+        $("p").contents().css("font-size","2em");
+        
+        //selectedIndex : selected 가 되어있는 목록의 index를 구한다.
+        var idx = $("#site").prop('selectedIndex');
+        //컴퍼넌트에 value 셋팅
+        $("#username").val(idx); //$("#username").val()
+        
+    });
+    </script>
+</head>
+<body>
+    <div>
+        <p>[9월 22일(화) 정기점검 안내]
+
+        1. 일시: 9월 22일(화) 오전 4시 ~ 오전 10시 30분 오전 10시
+        2. 영향: 점검 시간 동안 게임 접속 불가
+        3. 보상: V4 점검 보상 상자 7개
+        ​
+        <b>[점검 내용]</b>
+        1. 안정적인 게임 환경 조성을 위한 서버 안정화 작업
+        ​
+        2. 콘텐츠 추가 및 개선
+        ◈ 길드 던전 '현상 수배' 난이도 추가
+        - 아래 내용은 ‘새로운 시작! 길드 성장 이벤트’ 미적용된 기준의 보상입니다.
+        - 9월 22일(화) 추가되는 ‘현상 수배’ 난이도(4~5단계)는 ‘새로운 시작! 길드 성장 이벤트’ 기간 동안 
+           기존 대비 2배 상향된 길드 경험치를 획득하실 수 있습니다. [이벤트 공지 바로가기]
+        </p>
+        
+        <p class="c1">
+        찰리 몬토요 토론토 감독은 오는 25일(한국시간) 오전 7시 37분 미국 뉴욕주 샬렌 필드에서 열리는 2020 미국 메이저리그(MLB) 뉴욕 양키스전에 류현진의 선발 등판을 예고했다. 시즌 12번째 등판이자, 정규리그 마지막 등판이다.
+            토론토는 23일 현재 아메리칸리그 8위에 올라 있다. 9위 시애틀에 4경기 차로 앞서 있기 때문에 순위가 뒤집힐 가능성은 낮다. 가을 야구 첫 무대인 와일드카드 시리즈 1차전은 오는 30일에 열린다.
+        </p>
+        <p class="c1">[9월 22일(화) 정기점검 안내]
+
+        1. 일시: 9월 22일(화) 오전 4시 ~ 오전 10시 30분 오전 10시
+        2. 영향: 점검 시간 동안 게임 접속 불가
+        3. 보상: V4 점검 보상 상자 7개
+        ​
+        [점검 내용]
+        1. 안정적인 게임 환경 조성을 위한 서버 안정화 작업
+        ​
+        2. 콘텐츠 추가 및 개선
+        <i>◈ 길드 던전 '현상 수배' 난이도 추가</i>
+        - 아래 내용은 ‘새로운 시작! 길드 성장 이벤트’ 미적용된 기준의 보상입니다.
+        - 9월 22일(화) 추가되는 ‘현상 수배’ 난이도(4~5단계)는 ‘새로운 시작! 길드 성장 이벤트’ 기간 동안 
+           기존 대비 2배 상향된 길드 경험치를 획득하실 수 있습니다. [이벤트 공지 바로가기] </p>
+    </div>
+<div>
+    <form>
+        <label>이름</label><input type="text" name="username" id="username"/><br/>
+        <label>연락처</label><input type="text" name="tel" id="tel"/><br/>
+        <label>사용자동의여부</label><input type="radio" name="accept" value="yes" checked/>동의
+        <input type="radio" name="accept" value="미동의"/>비동의<br/>
+        <select name ="site" id="site">
+            <option value="not">==직접선택==</option>
+            <option value="daum">daum.net</option>
+            <option value="nate" selected>nate.net</option>
+            <option value="naver">naver.com</option>     
+        </select>
+        <br/>
+        <input type="button" value="확인"/>
+    </form>    
+    
+</div>
+</body>
+</html>

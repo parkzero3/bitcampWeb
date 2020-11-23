@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jusorok>
+	<record>
+		<username>홍길동</username>
+		<tel>010-1111-1111</tel>
+		<address>서울시 마포구 백범로</address>	
+	</record>
+	<record>
+		<username>손흥민</username>
+		<tel>010-234-1321</tel>
+		<address>서울시 서대문구</address>	
+	</record>
+	<record>
+		<username>김연아</username>
+		<tel>010-5325-5531</tel>
+		<address>서울시 강남구</address>	
+	</record>
+		<record>
+		<username>추신수</username>
+		<tel>010-6666-6666</tel>
+		<address>서울시 텍사스로</address>	
+	</record>	
+</jusorok>

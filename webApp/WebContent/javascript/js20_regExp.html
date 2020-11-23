@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    var txt ="Javascript and html and css";
+    var reg =/html/i; // 정규 표현식 규칙 i: 대소문자 구별없이 검사한다.  
+    
+    //표현식.test(문자열) 규칙에 맞으면 true , 틀리면 false 
+    console.log(reg.test(txt));
+    
+    function formCheck(){
+        //아이디 규칙정하기=(8자리부터~ 12글자까지),{1}첫번째 글자는 영문자/,영어(대소문자),숫자, _ 만 허용
+        //^ : 처음부터  $ : 끝까지 검사
+        reg = /^[A-Za-z]{1}\w{7,11}$/;      //  \w -> 영어대소문자,숫자,한글을 뜻함
+        var userid = document.getElementById("userid").value;
+        if(!reg.test(userid)){
+           alert("아이디는 (8자리부터~ 12글자까지),{1}첫번째 글자는 영문자만 ,영어(대소문자),숫자, _ 만 허용");
+            return false;
+           }
+        //이름 규칙정하기= 2글자에서 ~7글자, 한글만가능 (가~힣)
+        reg = /^[가-힣]{2,7}$/;
+        var username = document.getElementById("username").value;
+        if(!reg.test(username)){
+           alert("이름은 2글자에서 ~7글자, 한글만가능");
+            return false;
+           }
+        //주민번호 
+        //880101-1111111;
+        var jumin = document.getElementById("jumin1").value + "-"
+                    + document.getElementById("jumin2").value;
+        reg = /^[0-9]{2}[01][0-9][0-3][0-9][-][0-9]{7}$/;
+        if(!reg.test(jumin)){
+            alert("주민번호를 잘못 입력 하였습니다.");
+           return false;
+           }
+        //이메일
+        var email = document.getElementById("email").value;
+        // ()? : 있어도 되고 없어도 됨 규칙은 정해줘야함 
+        reg = /^\w{8,20}[@][a-zA-Z]{2,20}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$/;
+        if(!reg.test(email)){
+            alert("이메일을 잘못 입력하였습니다.");
+            return false;
+           }
+        
+        //연락처
+        // () : 소괄호로 담아서 괄호안에 있는 번호중 선택시키기
+        reg= /^(010|02|031|032|041)[-][0-9]{3,4}[-][0-9]{4}$/;
+        var tel = document.getElementById("tel1").value+"-";
+            tel+= document.getElementById("tel2").value+"-"; 
+            tel+= document.getElementById("tel3").value;
+        if(!reg.test(tel)){
+            alert("연락처를 잘못 입력하였습니다.");
+            return false;
+           }
+        return true;
+    }
+    function cursorMove(cnt,val,nextObj){
+        
+        if(val.length>=cnt){
+            document.getElementById(nextObj).focus();       
+        }
+    }
+</script>
+</head>
+<body>
+<form method="post" action="aaaa.jsp" onsubmit="return formCheck()">
+    아이디 : <input type="text" id="userid" name="userid" value="parkzero3"/><br/>
+    이름 : <input type="text" id="username" name="username" value="박땅콩"/><br/>
+    주민등록번호 : <input type="text" name="jumin1" id="jumin1"  onkeyup="cursorMove(6,this.value,'jumin2')"/> -
+                 <input type="text" name="jumin2" id="jumin2"  onkeyup="cursorMove(7,this.value,'email')"/> <br/>
+    이메일 : <input type="text" name="email" id="email" value="parkzero3@naver.com"/?><br/>
+    연락처 : <input type="text" namr="tel1" id="tel1" onkeyup="cursorMove(3,this.value,'tel2')"/> -
+            <input type="text" namr="tel2" id="tel2" onkeyup="cursorMove(4,this.value,'tel3')"/> -
+            <input type="text" namr="tel3" id="tel3" /><br/>
+    패스워드 : <input type="password" id="userpwd" name="userpwd" /><br/>
+    
+    <input type="submit" value="등록"/>
+</form>
+</body>
+</html>

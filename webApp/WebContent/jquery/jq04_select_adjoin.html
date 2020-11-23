@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    document.title = "인접선택자";
+    /*
+        $(document.readt(function(){
+       //Jquery 
+        });    
+    */
+        $(function(){ //document.ready 생략가능
+        //Jquery 
+            // * : 모든선택자 ,  tag : 태그선택자 <h1> <div> 등등. 
+            // # : 아이디선택자    . : 클래스선택자   >:자손선택자   스페이스 : 후손 선택자 
+            //children 선택자 : 선택자의 자손을 선택한다.
+            $("div").children().css("color","green");
+            //div 태그 자손중에 클래스가 .one 인경우 선택하기
+            $("div").children(".one").css("border","1px solid red");
+            //next(): 선택자의 다음에 있는 객체를 선택한다.
+            $("#first").next().css("background","pink"); //id first 다음
+            //prev(): 선택자의 이전에 있는 객체를 선택한다.
+            $("img").prev().css("border","2px dotted gray"); // img 이전 객체를 선택 (지금상황에선 div)
+            //parent() : 선택자의 부모 객체를 선택한다.
+            $("img").parent().css("background-color","lightblue"); //img 의 부모컨텐츠 (body)
+            //siblings(): 자신을 제외한 모든 형제 객체를 선택한다.
+            $("#first").siblings().css("border","3px double black"); //같은 div내의 있는 형제를 선택 (본인제외)
+            
+            $("img").prev().attr("title","인접선택자 연습중"); // 값이있는 속성을 사용할경우 attr 값이없는경우 prop
+        });
+    </script>
+</head>
+<body>
+<div>    
+    <h1 id="first"> 인접선택자 </h1>
+    <h1 class="one"> children 선택자 </h1>
+    <h2 class="one"> next 선택자 </h2>
+    <h4> prev 선택자 </h4>
+    <h4> parent 선택자 </h4>
+    <h3> siblings 선택자 </h3>
+    <h2> 자손,후손 선택자 </h2>
+</div>
+</body>
+    <img src="../img/01.jpg"/>
+</html>

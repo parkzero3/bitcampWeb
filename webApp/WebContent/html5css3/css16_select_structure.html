@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*
+		구조선택자
+		선택자:nth-child(2n)   --> 짝수번째
+		선택자:nth-child(2n+1) --> 홀수번째
+	*/
+	ul{margin:0; padding:0;list-style-type:none;overflow:auto}
+	li{float:left; width:150px;height:40px; text-align:center; line-height:40px;}
+	ul>li:nth-child(2n){
+		background-color:lightblue;
+		font-weight:bold;
+	}
+	ul>li:nth-child(2n+1){
+		background-color : pink;
+		font-weight:bold;
+	}
+	/*
+		선택자:first-child -> 첫번째 선택자
+		선택자:last-child -> 마지막 선택자
+	*/
+	ul>li:first-child{
+		border-radius:20px 0px 0px 20px;
+	}
+	ul>li:last-child{
+		border-radius: 0px 20px 20px 0px;
+	}
+</style>
+</head>
+<body>
+<ul>
+	<li>홈</li>
+	<li>회사소개</li>
+	<li>커뮤니티</li>
+	<li>Q&A</li>
+	<li>고객문의</li>
+	<li>게시판</li>
+</ul>
+<style>
+	/*
+		구조선택자
+		:first-of-type --> 첫번째 선택자
+		:last-of-type --> 마지막 선택자
+		:nth-of-type(2n) --> 짝수 , +1 홀수 , 3의배수 등등등 
+	*/
+	#div1>h1:first-of-type{
+		color:red;
+	}
+	#div1>h1:last-of-type{
+		color:blue;
+	}
+	#div1>h2:nth-of-type(2n){
+		background-color:yellow;
+	}
+</style>
+<div id="div1">
+	<h1>구조선택자11111</h1>
+	<h2>구조선택자AAAAA</h2>
+	<h1>구조선택자22222</h1>
+	<h2>구조선택자BBBBB</h2>
+	<h1>구조선택자33333</h1>
+	<h2>구조선택자CCCCC</h2>
+</div>
+</body>
+</html>

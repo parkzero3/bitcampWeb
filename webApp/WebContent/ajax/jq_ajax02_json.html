@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>   
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>  
+<script>
+	$(function() {
+		$("button").click(function() {
+
+			// ajax로 json파일 정보 불러오기
+
+			$.ajax({
+				url : "ajax_data.json",// 서버에서 전송받을 파일명
+				dataType : "JSON", // 전송받을 데이터 타입	
+				success : function(result) {//정상 전송을 받은경우 실행
+					//실행문
+
+					$.each(result.rank, function(idx, data) {
+						var tag = "<tr>";
+						tag += "<td>" + idx + "</td>";
+						tag += "<td>" + data["name"] + "</td>";
+						tag += "<td>" + data["local"] + "</td>";
+						tag += "<td>" + data["tel"] + "</td></tr>";
+
+						$("#list").append(tag);
+					});
+				},
+				error : function(e) {//전송 실패시
+					console.log("전송실패" + e.responseText);
+				}
+			});
+		});
+	});
+</script> 
+</head>
+<body>
+<div class="container">
+	<button class="btn btn-primary">클릭하면  서버에서 JSON형식으로 저장된 데이터를 불러옴</button>
+	<table class="table" id="list"></table>
+	<img src="../img/01.jpg"/>
+</div>
+</body>
+</html>
